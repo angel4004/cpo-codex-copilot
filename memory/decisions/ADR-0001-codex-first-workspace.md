@@ -1,16 +1,16 @@
-# ADR-0001: Codex-First Workspace
+# ADR-0001: Codex-first workspace - решение
 
-## Status
+## Статус
 
-Accepted.
+Принято.
 
-## Decision
+## Решение
 
-CPO Copilot v0.1 is implemented as a Git-installable Codex workspace, not as a
-standalone API service or GPT Project package.
+CPO Copilot v0.1 реализован как Git-installable Codex workspace, а не как
+standalone API service или GPT Project package.
 
-## Rationale
+## Обоснование
 
-Codex provides local filesystem access, project instructions, hooks and local
-verification scripts. This makes the Copilot easier to install, audit and evolve
-through Git.
+Codex дает local filesystem access, project instructions, hooks и local
+verification scripts. Поэтому Copilot проще устанавливать, audit-ить и развивать
+через Git.

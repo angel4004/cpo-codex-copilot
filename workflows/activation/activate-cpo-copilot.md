@@ -1,21 +1,22 @@
-# Activate CPO Copilot
+# Активация CPO Copilot
 
-## Goal
+## Цель
 
-Confirm that the workspace is active and route the user to the right mode.
+Подтвердить, что workspace активен, и направить пользователя в подходящий
+режим работы.
 
-## Steps
+## Шаги
 
 1. Read `AGENTS.md`, `CONSTITUTION.md`, `docs/runtime-contract.md`,
    `ROUTING.yaml` and `memory/MANIFEST.yaml`.
-2. Explain available modes in one short answer.
-3. Ask which mode to start:
+2. Кратко объясни доступные режимы.
+3. Спроси, с какого режима начать:
    - onboarding;
    - create project passport;
    - review existing passport;
    - evidence gap review;
    - PAF consistency review.
 
-## Output
+## Выход
 
-A short mode menu and one question.
+Короткое меню режимов и один вопрос.

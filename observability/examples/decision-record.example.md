@@ -1,11 +1,11 @@
-# Decision Record Example
+# Пример decision record
 
-Decision: continue onboarding.
+Decision: продолжить onboarding.
 
 Workflow: `create_project_passport`
 
 Trace: `example`
 
-Evidence refs: none in example.
+Evidence refs: в примере отсутствуют.
 
 Missing inputs: target segment.

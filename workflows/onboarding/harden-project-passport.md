@@ -1,13 +1,14 @@
-# Harden Project Passport
+# Hardening project passport - усиление
 
-## Goal
+## Цель
 
-Turn a weak passport into a more decision-ready artifact without inventing data.
+Превратить слабый passport в более decision-ready artifact без выдумывания
+данных.
 
-## Steps
+## Шаги
 
-1. Start trace with `tools/run-workflow.ps1 -WorkflowId harden_project_passport`.
-2. Apply the passport review.
-3. Preserve known facts.
-4. Convert unsupported claims into assumptions or evidence gaps.
-5. Close trace with the hardened artifact ref.
+1. Запусти trace через `tools/run-workflow.ps1 -WorkflowId harden_project_passport`.
+2. Примени passport review.
+3. Сохрани known facts.
+4. Преобразуй unsupported claims в assumptions или evidence gaps.
+5. Закрой trace с ref на hardened artifact.

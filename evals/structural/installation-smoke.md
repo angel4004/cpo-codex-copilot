@@ -1,7 +1,7 @@
-# Installation Smoke
+# Smoke установки
 
-Pass criteria:
+Критерии pass:
 
-- required files exist;
-- `memory/local/` and `traces/` generated content is ignored;
-- `tools/run-smoke.ps1` exits 0.
+- required files существуют;
+- generated content в `memory/local/` и `traces/` ignored;
+- `tools/run-smoke.ps1` завершается с exit 0.

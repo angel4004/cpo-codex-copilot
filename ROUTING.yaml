@@ -1,5 +1,7 @@
+description_ru: Продукт-агностичный router связывает task type, workflow, memory, practices и trace requirement.
 routes:
   - task_type: activation
+    description_ru: Активация Copilot и выбор режима.
     workflow: activate_cpo_copilot
     required_memory: [product_context, methodology_context, operating_principles]
     required_practices: [practices/copilot-ux/dialogue-first.md, practices/copilot-ux/artifact-boundaries.md]
@@ -9,6 +11,7 @@ routes:
     required_checks: [check-routing, check-memory-metadata]
     fallback_when_unclear: ask_for_target_mode
   - task_type: onboarding
+    description_ru: Первичный onboarding нового продукта или exploration context.
     workflow: create_project_passport
     required_memory: [product_context, methodology_context, operating_principles]
     required_practices: [practices/product-thinking/discovery-routing.md, practices/paf/evidence-and-uncertainty.md]
@@ -18,6 +21,7 @@ routes:
     required_checks: [check-routing, check-trace-coverage]
     fallback_when_unclear: ask_product_or_exploration_mode
   - task_type: create_project_passport
+    description_ru: Создание compact project passport из неполного контекста.
     workflow: create_project_passport
     required_memory: [product_context, methodology_context, operating_principles]
     required_practices: [practices/product-thinking/discovery-routing.md, practices/copilot-ux/artifact-boundaries.md]
@@ -27,6 +31,7 @@ routes:
     required_checks: [check-routing, check-trace-coverage]
     fallback_when_unclear: ask_for_missing_passport_inputs
   - task_type: review_existing_passport
+    description_ru: Review существующего project passport и поиск gaps.
     workflow: review_existing_passport
     required_memory: [product_context, methodology_context, operating_principles]
     required_practices: [practices/paf/evidence-and-uncertainty.md, practices/product-thinking/decision-readiness.md]
@@ -36,6 +41,7 @@ routes:
     required_checks: [check-routing, check-trace-coverage]
     fallback_when_unclear: ask_for_passport_ref
   - task_type: evidence_gap_review
+    description_ru: Проверка evidence gaps перед рекомендацией.
     workflow: evidence_gap_review
     required_memory: [methodology_context, operating_principles]
     required_practices: [practices/paf/evidence-and-uncertainty.md, practices/product-thinking/decision-readiness.md]
@@ -45,6 +51,7 @@ routes:
     required_checks: [check-routing, check-trace-coverage]
     fallback_when_unclear: ask_for_evidence_refs
   - task_type: paf_consistency_review
+    description_ru: Проверка PAF consistency без overclaiming.
     workflow: paf_consistency_review
     required_memory: [methodology_context, operating_principles]
     required_practices: [practices/paf/paf-knowledge-layer.md, practices/paf/answer-modes.md, practices/paf/evidence-and-uncertainty.md]

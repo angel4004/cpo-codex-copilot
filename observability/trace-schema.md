@@ -1,6 +1,6 @@
-# Trace Schema
+# Trace schema - схема
 
-Minimum event fields:
+Минимальные поля event:
 
 - `trace_id`
 - `session_id`
@@ -25,5 +25,5 @@ Minimum event fields:
 - `final_status`
 - `field_provenance`
 
-Raw prompt, raw tool args, raw tool output, secrets, transcripts and private
-context are forbidden trace fields.
+Raw prompt, raw tool args, raw tool output, secrets, transcripts и private
+context запрещены как trace fields.

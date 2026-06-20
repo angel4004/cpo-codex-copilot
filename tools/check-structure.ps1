@@ -11,6 +11,7 @@ $required = @(
   'CONSTITUTION.md',
   'README.md',
   'CHANGELOG.md',
+  'docs/live-validation.md',
   'ROUTING.yaml',
   'workflow-registry.yaml',
   'docs/runtime-contract.md',
@@ -25,6 +26,7 @@ $required = @(
   'observability/trace-schema.md',
   'observability/trace-provenance-schema.md',
   'observability/redaction-policy.md',
+  'tools/check-live-validation-readiness.ps1',
   '.codex/hooks.json'
 )
 
@@ -35,14 +37,14 @@ foreach ($rel in $required) {
 }
 
 $agents = Get-Content -Raw -Path (Join-Path $RepoRoot 'AGENTS.md')
-foreach ($token in @('CONSTITUTION.md','docs/runtime-contract.md','workflow-registry.yaml','ROUTING.yaml','memory/MANIFEST.yaml','Semantic Load Order')) {
+foreach ($token in @('CONSTITUTION.md','docs/runtime-contract.md','workflow-registry.yaml','ROUTING.yaml','memory/MANIFEST.yaml')) {
   if ($agents -notlike "*$token*") {
     Fail "agents_bootloader_missing: $token"
   }
 }
 
 $runtime = Get-Content -Raw -Path (Join-Path $RepoRoot 'docs/runtime-contract.md')
-foreach ($token in @('What Codex Executes','What Hooks Do','What The Workflow Runner Does','What Local Tools Do','What Remains Prompt-Level')) {
+foreach ($token in @('AGENTS.md','CONSTITUTION.md','trace_enforcement_level','prompt-level','local tools')) {
   if ($runtime -notlike "*$token*") {
     Fail "runtime_contract_missing: $token"
   }

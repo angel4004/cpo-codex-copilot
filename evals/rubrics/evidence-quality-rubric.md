@@ -1,9 +1,9 @@
-# Evidence Quality Rubric
+# Rubric качества evidence
 
-Score high only when the output:
+Ставь высокий score только если output:
 
-- separates facts from assumptions;
-- names missing evidence;
-- avoids unsupported PMF/PCF/business-impact claims;
-- names evidence refs or says they are missing;
-- proposes the next evidence action.
+- отделяет facts от assumptions;
+- называет missing evidence;
+- избегает unsupported PMF/PCF/business-impact claims;
+- называет evidence refs или говорит, что они отсутствуют;
+- предлагает next evidence action.

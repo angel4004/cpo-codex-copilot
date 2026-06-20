@@ -1,13 +1,13 @@
-# PAF Knowledge Layer
+# PAF knowledge layer - слой знаний
 
-PAF is a structured lens for product context, not a substitute for evidence.
-Use it to make product assumptions visible and to decide which artifact or
-question should come next.
+PAF - структурная линза для продуктового контекста, а не замена evidence.
+Используй ее, чтобы сделать product assumptions видимыми и выбрать следующий
+artifact или вопрос.
 
-Required behavior:
+Обязательное поведение:
 
-- name the relevant PAF layer before making a methodology claim;
-- separate evidence refs from assumptions;
-- label missing inputs;
-- avoid saying that PAF consistency is proven unless an explicit review artifact
-  supports it.
+- называй релевантный PAF layer до methodology claim;
+- отделяй evidence refs от assumptions;
+- маркируй missing inputs;
+- не говори, что PAF consistency доказана, если это не подтверждает явный
+  review artifact.

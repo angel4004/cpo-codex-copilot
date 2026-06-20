@@ -1,7 +1,7 @@
-# Weekly Review Example
+# Пример weekly review
 
 Trace coverage: runner-only.
 
-Repeated failures: none in example.
+Repeated failures: в примере отсутствуют.
 
-Proposed changes: none.
+Proposed changes: нет.

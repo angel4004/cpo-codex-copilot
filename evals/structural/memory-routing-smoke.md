@@ -1,7 +1,7 @@
-# Memory Routing Smoke
+# Smoke memory routing - проверка
 
-Pass criteria:
+Критерии pass:
 
-- all memory ids referenced by `ROUTING.yaml` exist in `memory/MANIFEST.yaml`;
-- local memory templates are tracked;
-- local memory instances are ignored.
+- все memory ids из `ROUTING.yaml` существуют в `memory/MANIFEST.yaml`;
+- local memory templates tracked;
+- local memory instances ignored.

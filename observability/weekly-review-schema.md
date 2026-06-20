@@ -1,6 +1,6 @@
-# Weekly Review Schema
+# Weekly review schema - схема
 
-Required sections:
+Обязательные sections:
 
 - trace coverage summary;
 - repeated failures;

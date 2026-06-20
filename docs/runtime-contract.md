@@ -1,45 +1,47 @@
-# Runtime Contract
+# Runtime-контракт
 
-## What Codex Executes
+## Что исполняет Codex
 
-Codex reads project instructions, exposes available tools, runs user-approved
-local commands and may execute project-local hooks after trust review.
-`AGENTS.md` is the bootloader. `CONSTITUTION.md` is semantic authority.
+Codex читает проектные инструкции, показывает доступные tools, запускает
+одобренные пользователем локальные команды и может исполнять project-local hooks
+после trust review. `AGENTS.md` - bootloader. `CONSTITUTION.md` - semantic
+authority.
 
-## What Hooks Do
+## Что делают hooks
 
-Hooks provide lifecycle observability around prompt, tool and stop events. They
-must pass raw input only to `tools/redact-trace-event.ps1` and write redacted
-events or safe refs. If hooks are disabled, untrusted or unverified, the system
-must report `trace_enforcement_disabled` and lower `trace_enforcement_level`.
+Hooks дают lifecycle observability вокруг prompt, tool и stop events. Они должны
+передавать raw input только в `tools/redact-trace-event.ps1` и писать redacted
+events или safe refs. Если hooks отключены, untrusted или unverified, система
+обязана зафиксировать `trace_enforcement_disabled` и понизить
+`trace_enforcement_level`.
 
-## What The Workflow Runner Does
+## Что делает workflow runner
 
-`tools/run-workflow.ps1` starts a workflow state from `workflow-registry.yaml`,
-assigns `workflow_id`, `session_id` and `trace_id`, records the selected routing
-context, and prepares required artifacts and checks. It is the local entrypoint
-for traceable workflows.
+`tools/run-workflow.ps1` стартует workflow state из `workflow-registry.yaml`,
+назначает `workflow_id`, `session_id` и `trace_id`, записывает выбранный routing
+context и подготавливает required artifacts/checks. Это локальный entrypoint для
+traceable workflows.
 
-## What Local Tools Do
+## Что делают local tools
 
-Local tools verify structure, links, memory metadata, memory conflicts, routing,
-eval schema, redaction fixtures, trace coverage, migration inventory and commit
-readiness. These checks are mechanical gates.
+Local tools проверяют structure, links, memory metadata, memory conflicts,
+routing, eval schema, redaction fixtures, trace coverage, migration inventory,
+language readiness и commit readiness. Эти checks являются mechanical gates.
 
-## What Remains Prompt-Level
+## Что остается prompt-level
 
-Product judgement, conversation style, choice of wording and nuanced
-interpretation remain prompt-level rules unless a local checker or external
-quality gate validates them. Prompt-level rules must not be described as
-enforcement.
+Product judgement, стиль диалога, выбор формулировок и nuanced interpretation
+остаются prompt-level rules, пока локальный checker или внешний quality gate не
+валидирует их. Prompt-level rules нельзя описывать как enforcement.
 
-## Runtime Readiness Levels
+## Уровни runtime readiness
 
-- `trusted_hooks`: hooks passed local trust and self-test.
-- `runner_only`: runner writes trace state, but hook lifecycle is not proven.
-- `disabled_or_untrusted_hooks`: hooks are off or not trusted.
-- `unverified_codex_runtime`: current Codex surface cannot prove hook execution.
-- `external_protocol_lab`: behavior is checked only by external replay/harness.
+- `trusted_hooks`: hooks прошли local trust и self-test.
+- `runner_only`: runner пишет trace state, но hook lifecycle не доказан.
+- `disabled_or_untrusted_hooks`: hooks выключены или не trusted.
+- `unverified_codex_runtime`: текущая Codex surface не может доказать hook
+  execution.
+- `external_protocol_lab`: behavior проверяется только внешним replay/harness.
 
-Full local trace readiness requires `trusted_hooks` plus passing runner and local
+Полная local trace readiness требует `trusted_hooks`, passing runner и local
 checks.

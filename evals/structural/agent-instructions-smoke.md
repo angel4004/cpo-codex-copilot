@@ -1,8 +1,7 @@
-# Agent Instructions Smoke
+# Smoke agent instructions - проверка
 
-Pass criteria:
+Критерии pass:
 
-- `AGENTS.md` names the semantic load order;
-- `CONSTITUTION.md` defines evidence and PAF boundaries;
-- `docs/runtime-contract.md` separates runtime enforcement from prompt-level
-  rules.
+- `AGENTS.md` называет semantic load order;
+- `CONSTITUTION.md` задает evidence и PAF boundaries;
+- `docs/runtime-contract.md` отделяет runtime enforcement от prompt-level rules.

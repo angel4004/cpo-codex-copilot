@@ -1,18 +1,18 @@
-# Review Existing Project Passport
+# Review существующего project passport
 
-## Goal
+## Цель
 
-Review an existing project passport for gaps, unsupported claims and next
+Проверить существующий project passport на gaps, unsupported claims и следующие
 hardening steps.
 
-## Steps
+## Шаги
 
-1. Start trace with `tools/run-workflow.ps1 -WorkflowId review_existing_passport`.
-2. Identify the artifact being reviewed.
-3. Separate strong sections, weak sections and missing evidence.
-4. Produce a prioritized hardening list.
-5. Close trace with review refs.
+1. Запусти trace через `tools/run-workflow.ps1 -WorkflowId review_existing_passport`.
+2. Определи artifact, который проверяется.
+3. Раздели strong sections, weak sections и missing evidence.
+4. Подготовь приоритизированный hardening list.
+5. Закрой trace с review refs.
 
-## Output
+## Выход
 
-Passport review with severity labels and next actions.
+Passport review с severity labels и next actions.

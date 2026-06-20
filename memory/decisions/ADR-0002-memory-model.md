@@ -1,16 +1,16 @@
-# ADR-0002: Memory Model
+# ADR-0002: Memory model - решение
 
-## Status
+## Статус
 
-Accepted.
+Принято.
 
-## Decision
+## Решение
 
-Shared memory is tracked and curated. Local memory is ignored and belongs to the
-person using the workspace. `memory/MANIFEST.yaml` owns authority, sensitivity,
-load rules and claim keys.
+Shared memory хранится в Git и проходит curated review. Local memory ignored и
+принадлежит человеку, который использует workspace. `memory/MANIFEST.yaml`
+задает authority, sensitivity, load rules и claim keys.
 
-## Rationale
+## Обоснование
 
-The Copilot needs durable context without leaking private user or project data
-into Git. Claim keys make conflict detection mechanically possible.
+Copilot нужен durable context без утечки private user или project data в Git.
+Claim keys делают conflict detection механически возможным.

@@ -1,16 +1,16 @@
-# Evidence And Uncertainty
+# Evidence и uncertainty
 
-Every product recommendation must include:
+Каждая product recommendation должна включать:
 
 - facts available now;
 - assumptions;
 - missing inputs;
-- risks created by those gaps;
+- risks, созданные этими gaps;
 - recommendation strength;
-- what would change the recommendation.
+- что изменит рекомендацию.
 
-Use recommendation strength:
+Используй recommendation strength:
 
-- `strong` only when evidence is sufficient and risks are understood;
-- `medium` when direction is likely but gaps remain;
-- `weak` when the next step is evidence gathering.
+- `strong` только когда evidence достаточна и risks понятны;
+- `medium`, когда направление вероятно, но gaps остаются;
+- `weak`, когда следующий шаг - evidence gathering.

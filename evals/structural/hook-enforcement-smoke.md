@@ -1,9 +1,9 @@
-# Hook Enforcement Smoke
+# Smoke hook enforcement - проверка
 
-Pass criteria:
+Критерии pass:
 
-- `.codex/hooks.json` exists;
-- hook scripts exist;
-- `tools/run-hook-self-test.ps1` writes a readiness report;
-- if live hooks cannot be proven, the report states `trace_enforcement_disabled`
-  or `runner_only`.
+- `.codex/hooks.json` существует;
+- hook scripts существуют;
+- `tools/run-hook-self-test.ps1` пишет readiness report;
+- если live hooks нельзя доказать, report содержит `trace_enforcement_disabled`
+  или `runner_only`.

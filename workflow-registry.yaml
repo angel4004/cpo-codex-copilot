@@ -1,6 +1,6 @@
 workflows:
   - workflow_id: activate_cpo_copilot
-    title: Activate CPO Copilot
+    title: Активация CPO Copilot
     traceable: false
     entrypoint: tools/run-workflow.ps1
     requires_decision_record: false
@@ -10,7 +10,7 @@ workflows:
     failure_mode: activation_context_missing
     owner_docs: [workflows/activation/activate-cpo-copilot.md]
   - workflow_id: create_project_passport
-    title: Create Project Passport
+    title: Создание project passport
     traceable: true
     entrypoint: tools/run-workflow.ps1
     requires_decision_record: true
@@ -20,7 +20,7 @@ workflows:
     failure_mode: project_passport_trace_missing
     owner_docs: [workflows/onboarding/create-project-passport.md]
   - workflow_id: review_existing_passport
-    title: Review Existing Project Passport
+    title: Review существующего project passport
     traceable: true
     entrypoint: tools/run-workflow.ps1
     requires_decision_record: true
@@ -30,7 +30,7 @@ workflows:
     failure_mode: passport_review_trace_missing
     owner_docs: [workflows/onboarding/review-existing-passport.md]
   - workflow_id: harden_project_passport
-    title: Harden Project Passport
+    title: Усиление project passport
     traceable: true
     entrypoint: tools/run-workflow.ps1
     requires_decision_record: true
@@ -40,7 +40,7 @@ workflows:
     failure_mode: passport_hardening_trace_missing
     owner_docs: [workflows/onboarding/harden-project-passport.md]
   - workflow_id: evidence_gap_review
-    title: Evidence Gap Review
+    title: Проверка evidence gaps
     traceable: true
     entrypoint: tools/run-workflow.ps1
     requires_decision_record: true
@@ -50,7 +50,7 @@ workflows:
     failure_mode: evidence_gap_trace_missing
     owner_docs: [workflows/reviews/evidence-gap-review.md]
   - workflow_id: paf_consistency_review
-    title: PAF Consistency Review
+    title: Проверка PAF consistency
     traceable: true
     entrypoint: tools/run-workflow.ps1
     requires_decision_record: true

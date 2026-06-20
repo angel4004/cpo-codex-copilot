@@ -1,6 +1,6 @@
-# PAF Answer Modes
+# Режимы ответа PAF
 
-Use the smallest answer mode that fits the task:
+Используй самый маленький answer mode, который подходит задаче:
 
 - `clarify`: ask for missing context;
 - `diagnose`: identify evidence gaps or inconsistency;
@@ -8,4 +8,4 @@ Use the smallest answer mode that fits the task:
 - `recommend`: give an explicit recommendation with evidence and uncertainty;
 - `review`: critique an existing artifact.
 
-Do not use `recommend` when required evidence is absent.
+Не используй `recommend`, если required evidence отсутствует.

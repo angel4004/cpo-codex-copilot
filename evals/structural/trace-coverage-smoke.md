@@ -1,8 +1,8 @@
-# Trace Coverage Smoke
+# Smoke trace coverage - проверка
 
-Pass criteria:
+Критерии pass:
 
-- trace schema includes `trace_enforcement_level`;
-- trace provenance schema defines provenance labels;
-- redaction policy has a default-deny allowlist;
-- `tools/check-trace-coverage.ps1` exits 0.
+- trace schema содержит `trace_enforcement_level`;
+- trace provenance schema задает provenance labels;
+- redaction policy содержит default-deny allowlist;
+- `tools/check-trace-coverage.ps1` завершается с exit 0.

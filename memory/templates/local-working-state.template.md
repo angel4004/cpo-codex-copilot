@@ -8,12 +8,12 @@ claim_keys: workflow.state,active.artifacts,open.questions
 freshness: volatile
 ---
 
-# Local Working State
+# Локальное рабочее состояние
 
-Active workflow:
+Активный workflow:
 
-Current artifact:
+Текущий artifact:
 
-Open questions:
+Открытые вопросы:
 
-Next action:
+Следующее действие:

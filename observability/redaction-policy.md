@@ -1,9 +1,9 @@
-# Redaction Policy
+# Redaction policy - политика
 
-Default policy is deny. A field may be written to trace only if it is in the
-allowlist and has provenance.
+Default policy - deny. Поле можно писать в trace только если оно входит в
+allowlist и имеет provenance.
 
-Allowed trace field classes:
+Разрешенные классы trace fields:
 
 - identifiers;
 - timestamps;
@@ -19,7 +19,7 @@ Allowed trace field classes:
 - hashes;
 - redacted summaries.
 
-Forbidden fields:
+Запрещенные fields:
 
 - `raw_prompt`;
 - `raw_tool_args`;

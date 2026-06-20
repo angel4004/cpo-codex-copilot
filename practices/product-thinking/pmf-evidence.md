@@ -1,10 +1,10 @@
-# PMF Evidence
+# PMF evidence - доказательства
 
-Do not claim PMF without strong evidence. PMF evidence may include retention,
-repeat usage, willingness to pay, segment consistency, pull from target users and
+Не заявляй PMF без strong evidence. PMF evidence может включать retention,
+repeat usage, willingness to pay, segment consistency, pull from target users и
 alternative comparison.
 
-If evidence is weak, say:
+Если evidence слабая, скажи:
 
 ```text
 PMF is not proven from the available evidence. The next useful step is ...

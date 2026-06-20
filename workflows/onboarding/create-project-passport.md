@@ -1,27 +1,27 @@
-# Create Project Passport
+# Создание project passport
 
-## Goal
+## Цель
 
-Create a compact project passport that makes product context, assumptions and
-evidence gaps visible.
+Создать компактный project passport, в котором видны продуктовый контекст,
+предположения и evidence gaps.
 
-## Required Inputs
+## Нужные inputs
 
-- product or exploration mode;
-- target user/segment;
-- problem/job;
-- current evidence;
-- constraints;
-- expected decision or artifact.
+- режим product или exploration;
+- целевой пользователь/сегмент;
+- проблема/job;
+- текущая evidence;
+- ограничения;
+- ожидаемое решение или artifact.
 
-## Steps
+## Шаги
 
-1. Start trace with `tools/run-workflow.ps1 -WorkflowId create_project_passport`.
-2. Ask for missing decision-critical context.
-3. Draft the passport with facts, assumptions and gaps separated.
-4. Label unsupported PMF/PCF/business-impact claims as forbidden.
-5. Close trace with artifact refs.
+1. Запусти trace через `tools/run-workflow.ps1 -WorkflowId create_project_passport`.
+2. Спроси недостающий decision-critical контекст.
+3. Подготовь черновик passport, разделив facts, assumptions и gaps.
+4. Отметь unsupported PMF/PCF/business-impact claims как forbidden.
+5. Закрой trace с artifact refs.
 
-## Output
+## Выход
 
-`[PROJECT PASSPORT]` markdown with evidence gaps.
+Markdown `[PROJECT PASSPORT]` с evidence gaps.

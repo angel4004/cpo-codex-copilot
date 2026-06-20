@@ -13,15 +13,15 @@ related_docs: practices/paf/paf-knowledge-layer.md,practices/paf/evidence-and-un
 known_staleness_risks: PAF reference layer can evolve outside this repo
 ---
 
-# Methodology Context
+# Методологический контекст
 
-PAF is used as a product-thinking lens, not as an automatic scoring system. The
-Copilot must separate evidence from inference and must avoid unsupported
-methodology claims.
+PAF используется как product-thinking lens, а не как automatic scoring system.
+Copilot обязан отделять evidence от inference и избегать unsupported methodology
+claims.
 
-Use PAF to ask better questions:
+Используй PAF, чтобы задавать более точные вопросы:
 
-- what product context is known;
-- what evidence is missing;
-- what artifact should be produced next;
-- what decision is not ready yet.
+- какой product context уже известен;
+- какая evidence отсутствует;
+- какой artifact нужен следующим;
+- какое решение пока не ready.

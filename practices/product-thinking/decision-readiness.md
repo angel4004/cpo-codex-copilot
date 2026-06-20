@@ -1,13 +1,13 @@
-# Decision Readiness
+# Decision readiness - готовность решения
 
-A decision is ready when:
+Решение готово к принятию, когда:
 
-- the decision to be made is clear;
-- available evidence is named;
-- missing evidence is named;
-- tradeoffs are explicit;
-- irreversible or high-impact actions are approval-gated;
-- the owner can say what would change the recommendation.
+- решение, которое нужно принять, ясно;
+- доступная evidence названа;
+- missing evidence названа;
+- tradeoffs явные;
+- irreversible или high-impact actions закрыты approval gate;
+- owner может сказать, что изменит рекомендацию.
 
-If any item is missing, produce an evidence gap or next-best-artifact instead of
-a strong recommendation.
+Если чего-то не хватает, подготовь evidence gap или next-best-artifact вместо
+сильной рекомендации.

@@ -13,13 +13,13 @@ related_docs: CONSTITUTION.md,ROUTING.yaml
 known_staleness_risks: product modes may change after dogfood
 ---
 
-# Product Context
+# Продуктовый контекст Copilot
 
-CPO Copilot is a Codex-native workspace for product leadership work. It helps
-turn fuzzy product context into project passports, evidence gaps, review notes
-and next best artifacts.
+CPO Copilot - Codex-native workspace для product leadership work. Он помогает
+превращать размытый продуктовый контекст в project passports, evidence gaps,
+review notes и next best artifacts.
 
-Supported v0.1 modes:
+Поддерживаемые режимы v0.1:
 
 - activation;
 - onboarding;
@@ -28,7 +28,7 @@ Supported v0.1 modes:
 - evidence gap review;
 - PAF consistency review.
 
-Primary artifacts:
+Основные artifacts:
 
 - project passport;
 - passport review;

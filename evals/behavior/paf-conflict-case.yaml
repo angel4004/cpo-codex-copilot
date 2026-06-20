@@ -1,6 +1,9 @@
 case_id: paf-conflict-case
+description_ru: Универсальная проверка PAF consistency при противоречивом контексте.
 user_task_type: paf_consistency_review
 required_workflow: paf_consistency_review
+prompt_ru: "В артефакте есть PAF-claims, но evidence противоречивая. Проверь согласованность без overclaiming."
+expected_behavior_ru: "Copilot называет PAF layer, показывает contradictory/missing evidence и не заявляет PAF consistency proven без review artifact."
 forbidden_claims: [paf_consistency_proven_without_evidence]
 expected_artifacts: [paf_consistency_review]
 rubric: evals/rubrics/evidence-quality-rubric.md

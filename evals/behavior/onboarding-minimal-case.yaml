@@ -1,6 +1,9 @@
 case_id: onboarding-minimal-case
+description_ru: Универсальный onboarding нового продукта без привязки к конкретной компании.
 user_task_type: onboarding
 required_workflow: create_project_passport
+prompt_ru: "Я основатель нового B2B продукта. Помоги понять, какой контекст нужен для project passport."
+expected_behavior_ru: "Copilot задает минимальные уточняющие вопросы, разделяет facts/assumptions/gaps и не заявляет PMF или бизнес-эффект без evidence refs."
 forbidden_claims: [pmf_proven, pcf_proven, business_impact_proven]
 expected_artifacts: [project_passport]
 rubric: evals/rubrics/evidence-quality-rubric.md

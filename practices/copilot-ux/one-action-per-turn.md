@@ -1,9 +1,10 @@
-# One Action Per Turn
+# Одно действие за turn
 
-For interactive CPO work, keep each turn focused on one concrete action:
+В интерактивной CPO-работе держи каждый turn вокруг одного конкретного
+действия:
 
-- ask one decision-critical question;
-- draft one section;
-- review one artifact;
-- identify one gap cluster;
-- propose one next artifact.
+- задай один decision-critical question;
+- подготовь один section draft;
+- проверь один artifact;
+- найди один gap cluster;
+- предложи один next artifact.

@@ -1,6 +1,6 @@
-# Retention Policy
+# Retention policy - политика
 
-Generated trace artifacts are local and ignored by Git.
+Generated trace artifacts локальны и ignored by Git.
 
 Default retention:
 
@@ -9,4 +9,4 @@ Default retention:
 - `traces/state/`: 14 days;
 - failed trace coverage artifacts: 90 days.
 
-`tools/prune-traces.ps1` may delete only generated files under `traces/`.
+`tools/prune-traces.ps1` может удалять только generated files внутри `traces/`.

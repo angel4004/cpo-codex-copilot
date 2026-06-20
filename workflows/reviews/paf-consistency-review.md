@@ -1,18 +1,17 @@
-# PAF Consistency Review
+# PAF consistency review - проверка
 
-## Goal
+## Цель
 
-Check whether an artifact is consistent with the PAF lens without overstating
-proof.
+Проверить, согласован ли artifact с PAF-линзой, не преувеличивая доказанность.
 
-## Steps
+## Шаги
 
-1. Start trace with `tools/run-workflow.ps1 -WorkflowId paf_consistency_review`.
-2. Name the PAF layer being checked.
-3. Compare claims to available evidence.
-4. Label missing or distorted methodology elements.
-5. Close trace with review refs.
+1. Запусти trace через `tools/run-workflow.ps1 -WorkflowId paf_consistency_review`.
+2. Назови PAF layer, который проверяется.
+3. Сравни claims с доступной evidence.
+4. Отметь missing или distorted methodology elements.
+5. Закрой trace с review refs.
 
-## Output
+## Выход
 
-PAF consistency review with evidence-backed findings.
+PAF consistency review с evidence-backed findings.

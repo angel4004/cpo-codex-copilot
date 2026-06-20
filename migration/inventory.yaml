@@ -1,11 +1,12 @@
 source_root: ../cpo
+description_ru: Inventory показывает, как файлы старого GPT Project-era CPO package мигрируют в Codex-native Copilot.
 items:
   - source_file: cpo/runtime/project_setup/template_product_project_passport_template_for_cpo_copilot.md
     source_sha: aec70136c7056dc8352af86b52a285ae15a82b476042ae939678e107f0a2a973
     current_role: product passport template
     classification: move-to-memory
     new_destination: memory/templates/local-project-context.template.md
-    migration_notes: preserve as local project context/passport template seed
+    migration_notes: сохранить как seed для local project context/passport template
     quality_risk: medium
     owner: Ilya
     status: pending
@@ -15,7 +16,7 @@ items:
     current_role: exploration passport template
     classification: move-to-memory
     new_destination: memory/templates/local-project-context.template.md
-    migration_notes: preserve exploration-mode fields as local project context template inputs
+    migration_notes: сохранить exploration-mode fields как inputs local project context template
     quality_risk: medium
     owner: Ilya
     status: pending
@@ -25,7 +26,7 @@ items:
     current_role: GPT Project activation protocol
     classification: split
     new_destination: AGENTS.md;ROUTING.yaml;workflows/activation/activate-cpo-copilot.md
-    migration_notes: convert launch protocol into Codex bootloader and activation workflow
+    migration_notes: преобразовать launch protocol в Codex bootloader и activation workflow
     quality_risk: high
     owner: Ilya
     status: migrated-v0.1-skeleton
@@ -35,7 +36,7 @@ items:
     current_role: GPT Project setup instructions
     classification: split
     new_destination: README.md;docs/runtime-contract.md
-    migration_notes: keep install/update shape but remove GPT Project assumptions
+    migration_notes: сохранить install/update форму, но убрать GPT Project assumptions
     quality_risk: medium
     owner: Ilya
     status: migrated-v0.1-skeleton
@@ -45,7 +46,7 @@ items:
     current_role: first GPT Project chat prompt
     classification: retire
     new_destination: retired;replaced-by-AGENTS-activation
-    migration_notes: launch prompt is no longer runtime source in Codex-first workspace
+    migration_notes: launch prompt больше не является runtime source в Codex-first workspace
     quality_risk: low
     owner: Ilya
     status: retired
@@ -55,7 +56,7 @@ items:
     current_role: product context schema
     classification: move-to-memory
     new_destination: memory/templates/local-project-context.template.md
-    migration_notes: use as local project context and passport input schema
+    migration_notes: использовать как local project context и passport input schema
     quality_risk: medium
     owner: Ilya
     status: pending
@@ -65,7 +66,7 @@ items:
     current_role: exploration context schema
     classification: move-to-memory
     new_destination: memory/templates/local-project-context.template.md
-    migration_notes: use as exploration-mode local context schema
+    migration_notes: использовать как exploration-mode local context schema
     quality_risk: medium
     owner: Ilya
     status: pending
@@ -75,7 +76,7 @@ items:
     current_role: passport review and hardening method
     classification: convert-to-workflow
     new_destination: workflows/onboarding/review-existing-passport.md;workflows/onboarding/harden-project-passport.md
-    migration_notes: convert into traceable passport review/hardening workflows
+    migration_notes: преобразовать в traceable passport review/hardening workflows
     quality_risk: high
     owner: Ilya
     status: migrated-v0.1-skeleton
@@ -85,7 +86,7 @@ items:
     current_role: GPT Project instruction template
     classification: split
     new_destination: AGENTS.md;CONSTITUTION.md;docs/runtime-contract.md
-    migration_notes: split into Codex bootloader, semantic contract and runtime boundary
+    migration_notes: разделить на Codex bootloader, semantic contract и runtime boundary
     quality_risk: high
     owner: Ilya
     status: migrated-v0.1-skeleton
@@ -95,7 +96,7 @@ items:
     current_role: setup checklist
     classification: turn-into-eval
     new_destination: evals/structural/installation-smoke.md;tools/run-smoke.ps1
-    migration_notes: convert setup readiness into structural smoke gate
+    migration_notes: преобразовать setup readiness в structural smoke gate
     quality_risk: medium
     owner: Ilya
     status: migrated-v0.1-skeleton
@@ -105,7 +106,7 @@ items:
     current_role: PAF answer modes
     classification: keep-as-practice
     new_destination: practices/paf/answer-modes.md
-    migration_notes: preserve as practice layer
+    migration_notes: сохранить как practice layer
     quality_risk: medium
     owner: Ilya
     status: migrated-v0.1-skeleton
@@ -115,7 +116,7 @@ items:
     current_role: evidence and uncertainty policy
     classification: keep-as-practice
     new_destination: practices/paf/evidence-and-uncertainty.md
-    migration_notes: preserve as evidence practice and eval rubric input
+    migration_notes: сохранить как evidence practice и eval rubric input
     quality_risk: high
     owner: Ilya
     status: migrated-v0.1-skeleton
@@ -125,7 +126,7 @@ items:
     current_role: CPO Copilot UX kernel
     classification: split
     new_destination: CONSTITUTION.md;practices/copilot-ux/dialogue-first.md;practices/copilot-ux/one-action-per-turn.md;practices/copilot-ux/artifact-boundaries.md
-    migration_notes: split into semantic role and UX practices
+    migration_notes: разделить на semantic role и UX practices
     quality_risk: high
     owner: Ilya
     status: migrated-v0.1-skeleton
@@ -135,7 +136,7 @@ items:
     current_role: PAF knowledge canon
     classification: keep-as-practice
     new_destination: practices/paf/paf-knowledge-layer.md
-    migration_notes: preserve as PAF practice layer
+    migration_notes: сохранить как PAF practice layer
     quality_risk: high
     owner: Ilya
     status: migrated-v0.1-skeleton

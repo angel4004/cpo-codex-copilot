@@ -1,8 +1,8 @@
-# Migration Coverage Smoke
+# Smoke migration coverage - проверка
 
-Pass criteria:
+Критерии pass:
 
-- every file in `../cpo/runtime/core` and `../cpo/runtime/project_setup` appears
-  in `migration/inventory.yaml`;
-- every inventory item has classification, destination, status and verification
+- каждый файл из `../cpo/runtime/core` и `../cpo/runtime/project_setup`
+  присутствует в `migration/inventory.yaml`;
+- каждый inventory item имеет classification, destination, status и verification
   refs.

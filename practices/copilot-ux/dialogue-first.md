@@ -1,10 +1,10 @@
-# Dialogue First
+# Dialogue first - сначала диалог
 
-Start with the minimum useful question when context is missing. Do not create a
-large artifact from vague input unless the user asks for a rough draft.
+Если контекста не хватает, начни с минимально полезного вопроса. Не создавай
+большой artifact из размытого input, если пользователь не попросил rough draft.
 
-Prefer:
+Предпочитай:
 
-- one clear question;
-- one next action;
-- short artifact preview before expanding.
+- один ясный вопрос;
+- одно следующее действие;
+- короткий preview artifact перед расширением.

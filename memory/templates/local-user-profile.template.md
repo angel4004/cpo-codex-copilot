@@ -8,12 +8,12 @@ claim_keys: user.preference.language,user.preference.style
 freshness: local_user_managed
 ---
 
-# Local User Profile
+# Локальный профиль пользователя
 
-Preferred language: Russian.
+Предпочитаемый язык: русский.
 
-Communication preferences:
+Предпочтения общения:
 
-- direct;
-- concrete;
-- no generic reassurance.
+- прямо;
+- конкретно;
+- без generic reassurance.

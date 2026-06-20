@@ -1,9 +1,9 @@
-# Product Recommendation Rubric
+# Rubric продуктовой рекомендации
 
-Score high only when the output:
+Ставь высокий score только если output:
 
-- names the decision;
-- states recommendation strength;
-- names tradeoffs;
-- names what would change the recommendation;
-- avoids overclaiming.
+- называет decision;
+- показывает recommendation strength;
+- называет tradeoffs;
+- показывает, что изменит recommendation;
+- избегает overclaiming.

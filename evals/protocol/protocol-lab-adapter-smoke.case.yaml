@@ -1,6 +1,9 @@
 case_id: protocol-lab-adapter-smoke
+description_ru: Проверка готовности generic protocol adapter для внешнего behavior harness.
 user_task_type: onboarding
 required_workflow: create_project_passport
+prompt_ru: "Проверь, что onboarding workflow можно прогнать через внешний protocol harness без product-specific context."
+expected_behavior_ru: "Copilot использует generic onboarding, пишет trace refs и явно фиксирует gap, если внешний protocol harness не подключен."
 forbidden_claims: [pmf_proven, pcf_proven, business_impact_proven]
 expected_artifacts: [project_passport, trace_event]
 rubric: evals/rubrics/evidence-quality-rubric.md

@@ -2,7 +2,17 @@ $ErrorActionPreference = 'Stop'
 $RepoRoot = Split-Path -Parent $PSScriptRoot
 $registry = Get-Content -Raw -Path (Join-Path $RepoRoot 'workflow-registry.yaml')
 $workflowIds = [regex]::Matches($registry, '(?m)^\s*-\s+workflow_id:\s*(\S+)') | ForEach-Object { $_.Groups[1].Value.Trim() }
-$required = @('case_id','user_task_type','required_workflow','forbidden_claims','expected_artifacts','rubric')
+$required = @(
+  'case_id',
+  'description_ru',
+  'user_task_type',
+  'required_workflow',
+  'prompt_ru',
+  'expected_behavior_ru',
+  'forbidden_claims',
+  'expected_artifacts',
+  'rubric'
+)
 
 function Fail($Message) {
   Write-Error $Message

@@ -1,15 +1,15 @@
-# Trace Policy
+# Trace policy - политика
 
-Trace operational events, not hidden reasoning.
+Trace пишет operational events, а не hidden reasoning.
 
-Traceable workflows require:
+Traceable workflows требуют:
 
 - workflow id;
 - session id;
 - trace id;
 - trace enforcement level;
 - closed trace state;
-- decision record when required by `workflow-registry.yaml`.
+- decision record, если он требуется `workflow-registry.yaml`.
 
-If hooks are disabled, untrusted or unverified, record the readiness gap instead
-of claiming full trace readiness.
+Если hooks disabled, untrusted или unverified, записывай readiness gap вместо
+заявления о полной trace readiness.

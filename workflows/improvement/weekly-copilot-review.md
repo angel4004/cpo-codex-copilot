@@ -1,11 +1,11 @@
-# Weekly Copilot Review
+# Еженедельный review Copilot
 
-## Goal
+## Цель
 
-Review local traces, smoke results and repeated failures. Produce proposed
-improvements only; do not apply changes automatically.
+Проверить local traces, smoke results и повторяющиеся failures. Подготовить
+только proposed improvements; не применять изменения автоматически.
 
-## Stop Boundary
+## Stop boundary - граница остановки
 
-Stop before changing canonical files, scheduling automations, writing external
-systems, pushing, opening PRs or running provider calls outside Codex runtime.
+Остановиться до изменения canonical files, настройки automations, записи во
+внешние системы, push, открытия PR или запуска provider calls вне Codex runtime.

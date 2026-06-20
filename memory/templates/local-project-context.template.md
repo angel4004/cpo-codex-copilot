@@ -8,14 +8,14 @@ claim_keys: project.context,project.evidence,project.constraints
 freshness: local_user_managed
 ---
 
-# Local Project Context
+# Локальный контекст проекта
 
-Project name:
+Название проекта:
 
-Known facts:
+Известные факты:
 
-Open questions:
+Открытые вопросы:
 
 Evidence refs:
 
-Constraints:
+Ограничения:

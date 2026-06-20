@@ -1,5 +1,7 @@
+description_ru: Manifest управляет authority, sensitivity, load_when и claim_keys для shared/local memory.
 memory:
   - memory_id: product_context
+    description_ru: Общий контекст того, что такое CPO Copilot и какие artifacts он поддерживает.
     path: memory/shared/product-context.md
     authority: shared_curated
     sensitivity: public_internal
@@ -10,6 +12,7 @@ memory:
     owner: Ilya
     conflict_policy: shared_wins
   - memory_id: methodology_context
+    description_ru: Общий методологический контекст PAF и evidence policy.
     path: memory/shared/methodology-context.md
     authority: shared_curated
     sensitivity: public_internal
@@ -20,6 +23,7 @@ memory:
     owner: Ilya
     conflict_policy: shared_wins
   - memory_id: operating_principles
+    description_ru: Рабочие правила, privacy boundary и approval boundary.
     path: memory/shared/operating-principles.md
     authority: shared_curated
     sensitivity: public_internal
@@ -30,6 +34,7 @@ memory:
     owner: Ilya
     conflict_policy: shared_wins
   - memory_id: local_user_profile
+    description_ru: Локальные предпочтения пользователя; шаблон, не shared truth.
     path: memory/templates/local-user-profile.template.md
     authority: local_user
     sensitivity: local_private_template
@@ -40,6 +45,7 @@ memory:
     owner: local_user
     conflict_policy: allow_local_overlay
   - memory_id: local_project_context
+    description_ru: Локальный контекст конкретного проекта; не коммитится в Git.
     path: memory/templates/local-project-context.template.md
     authority: local_project
     sensitivity: local_private_template
@@ -50,6 +56,7 @@ memory:
     owner: local_user
     conflict_policy: report_conflict
   - memory_id: local_working_state
+    description_ru: Локальное рабочее состояние текущего workflow.
     path: memory/templates/local-working-state.template.md
     authority: local_session
     sensitivity: local_private_template

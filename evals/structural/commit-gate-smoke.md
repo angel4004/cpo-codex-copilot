@@ -1,7 +1,7 @@
-# Commit Gate Smoke
+# Smoke commit gate - проверка
 
-Pass criteria:
+Критерии pass:
 
-- `tools/safe-local-commit.ps1` exists;
-- canonical paths are named;
-- smoke checks run before a commit.
+- `tools/safe-local-commit.ps1` существует;
+- canonical paths названы;
+- smoke checks запускаются до commit.

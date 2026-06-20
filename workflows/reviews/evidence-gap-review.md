@@ -1,18 +1,18 @@
-# Evidence Gap Review
+# Evidence gap review - проверка gaps
 
-## Goal
+## Цель
 
-Show what is known, what is missing and which missing evidence blocks a
-recommendation.
+Показать, что известно, чего не хватает и какая missing evidence блокирует
+рекомендацию.
 
-## Steps
+## Шаги
 
-1. Start trace with `tools/run-workflow.ps1 -WorkflowId evidence_gap_review`.
-2. Extract claims and evidence refs.
-3. Mark unsupported PMF, PCF, business-impact and PAF claims.
-4. Group gaps by decision impact.
-5. Recommend the next evidence-gathering action.
+1. Запусти trace через `tools/run-workflow.ps1 -WorkflowId evidence_gap_review`.
+2. Извлеки claims и evidence refs.
+3. Отметь unsupported PMF, PCF, business-impact и PAF claims.
+4. Сгруппируй gaps по влиянию на решение.
+5. Порекомендуй следующий evidence-gathering action.
 
-## Output
+## Выход
 
 Evidence gap report.

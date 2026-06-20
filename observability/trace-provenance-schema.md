@@ -1,10 +1,10 @@
-# Trace Provenance Schema
+# Trace provenance schema - схема
 
-Allowed provenance labels:
+Разрешенные provenance labels:
 
 - `runtime_observed`
 - `runner_validated`
 - `agent_declared`
 - `policy_inferred`
 
-Every important trace field must have a provenance entry in `field_provenance`.
+Каждое важное trace field должно иметь provenance entry в `field_provenance`.

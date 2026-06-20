@@ -1,6 +1,6 @@
-# Decision Record Schema
+# Decision record schema - схема
 
-Required fields:
+Обязательные fields:
 
 - decision;
 - workflow_id;

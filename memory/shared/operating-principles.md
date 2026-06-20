@@ -13,13 +13,13 @@ related_docs: AGENTS.md,CONSTITUTION.md,docs/runtime-contract.md
 known_staleness_risks: Codex hook behavior may change
 ---
 
-# Operating Principles
+# Рабочие принципы
 
-- Ask for missing context when a strong product conclusion would otherwise be
+- Спрашивай недостающий контекст, если иначе сильный продуктовый вывод будет
   unsupported.
-- Do not treat private local memory as shared truth.
-- Do not print secrets, `.env` values, raw private transcripts or raw provider
+- Не считай private local memory shared truth.
+- Не печатай secrets, `.env` values, raw private transcripts или raw provider
   payloads.
-- For traceable workflows, use the workflow runner or state the readiness gap.
-- External writes and provider calls outside Codex runtime require explicit
-  approval.
+- Для traceable workflows используй workflow runner или явно фиксируй readiness
+  gap.
+- External writes и provider calls вне Codex runtime требуют явного approval.

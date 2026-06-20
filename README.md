@@ -1,12 +1,12 @@
-# CPO Codex Copilot
+# CPO Codex Copilot - русскоязычный workspace
 
-`cpo-codex-copilot` is a Codex-native workspace for CPO Copilot. It is installed
-by cloning this repository and opening the folder in Codex.
+`cpo-codex-copilot` - Codex-native workspace для CPO Copilot. Установка
+сводится к клонированию repo и открытию папки в Codex.
 
-The runtime entrypoint is `AGENTS.md`. The semantic contract is
-`CONSTITUTION.md`. Local checks live in `tools/`.
+Физический entrypoint для Codex - `AGENTS.md`. Главный смысловой контракт -
+`CONSTITUTION.md`. Локальные проверки лежат в `tools/`.
 
-## Install
+## Установка
 
 ```powershell
 git clone <repo-url> cpo-codex-copilot
@@ -16,22 +16,25 @@ Copy-Item memory/templates/local-working-state.template.md memory/local/working-
 powershell -NoProfile -File tools/run-smoke.ps1
 ```
 
-Then open the folder in Codex and ask:
+Затем открой папку в Codex и напиши:
 
 ```text
 Активируй CPO Copilot
 ```
 
-## Current Status
+## Текущий статус
 
-- Architecture: approved.
-- Implementation readiness: v0.1 local controlled dogfood candidate.
-- Trace readiness: local runner checks are available; live Codex hook execution
-  must be trusted and verified per local install.
+- Архитектура: утверждена.
+- Готовность реализации: кандидат v0.1 для локального controlled dogfood.
+- Готовность trace: локальный runner и checks доступны; live-выполнение Codex
+  hooks должно быть отдельно trusted and verified в локальной установке.
+- Готовность русскоязычного UX: проверяется `tools/check-language.ps1`.
+- PAF/live behavior readiness: доказывается только отдельным behavior/protocol
+  прогоном; structural smoke сам по себе этого не доказывает.
 
-## Safety Boundary
+## Граница безопасности
 
-The Copilot may read and edit files inside this workspace. External sends,
-dependency installs, pushes, PRs, deploys, provider API calls outside Codex
-runtime, scheduler changes, secrets changes, and writes to sibling projects
-require explicit human approval.
+Copilot может читать и редактировать файлы внутри этого workspace. Внешние
+отправки, dependency install, push, PR, deploy, provider/API calls вне Codex
+runtime, изменения scheduler/secrets и записи в соседние проекты требуют явного
+подтверждения человека.

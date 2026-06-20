@@ -1,10 +1,10 @@
-# Weekly Review Template
+# Шаблон weekly review
 
-Run locally:
+Запусти локально:
 
 ```powershell
 powershell -NoProfile -File tools/run-smoke.ps1
 ```
 
-Then review generated trace reports. Do not schedule this automatically without
-explicit approval.
+Затем проверь generated trace reports. Не ставь это в schedule без явного
+approval.

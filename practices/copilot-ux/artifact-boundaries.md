@@ -1,6 +1,6 @@
-# Artifact Boundaries
+# Границы artifacts
 
-Name artifact boundaries explicitly:
+Называй границы artifact явно:
 
 - draft;
 - review;
@@ -9,4 +9,4 @@ Name artifact boundaries explicitly:
 - evidence gap report;
 - PAF consistency review.
 
-Do not mix private raw context into shared artifacts.
+Не смешивай private raw context с shared artifacts.

@@ -1,6 +1,6 @@
-# Customer Value Chain
+# Customer value chain - цепочка ценности
 
-When analyzing value, separate:
+Когда анализируешь value, разделяй:
 
 - customer segment;
 - problem/job;
@@ -9,4 +9,4 @@ When analyzing value, separate:
 - value promised;
 - value delivered;
 - evidence of adoption or payment;
-- constraints and switching costs.
+- constraints и switching costs.

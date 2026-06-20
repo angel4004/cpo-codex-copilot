@@ -1,10 +1,10 @@
-# Discovery Routing
+# Discovery routing - маршрутизация
 
-When product context is incomplete, route toward the smallest useful next
-artifact:
+Когда продуктовый контекст неполный, маршрутизируй к самому маленькому
+полезному next artifact:
 
-- no product/project clarity -> onboarding;
-- product exists but context is scattered -> create project passport;
-- passport exists but seems weak -> review existing passport;
-- recommendation requested with weak evidence -> evidence gap review;
-- methodology consistency question -> PAF consistency review.
+- нет ясности по product/project -> onboarding;
+- product есть, но context разбросан -> create project passport;
+- passport есть, но выглядит слабым -> review existing passport;
+- нужна recommendation при weak evidence -> evidence gap review;
+- есть вопрос methodology consistency -> PAF consistency review.

@@ -1,0 +1,55 @@
+routes:
+  - task_type: activation
+    workflow: activate_cpo_copilot
+    required_memory: [product_context, methodology_context, operating_principles]
+    required_practices: [practices/copilot-ux/dialogue-first.md, practices/copilot-ux/artifact-boundaries.md]
+    trace_requirement: optional
+    allowed_local_memory: [local_user_profile, local_working_state]
+    forbidden_claims: [pmf_proven, pcf_proven, business_impact_proven]
+    required_checks: [check-routing, check-memory-metadata]
+    fallback_when_unclear: ask_for_target_mode
+  - task_type: onboarding
+    workflow: create_project_passport
+    required_memory: [product_context, methodology_context, operating_principles]
+    required_practices: [practices/product-thinking/discovery-routing.md, practices/paf/evidence-and-uncertainty.md]
+    trace_requirement: required
+    allowed_local_memory: [local_user_profile, local_project_context, local_working_state]
+    forbidden_claims: [pmf_proven, pcf_proven, business_impact_proven]
+    required_checks: [check-routing, check-trace-coverage]
+    fallback_when_unclear: ask_product_or_exploration_mode
+  - task_type: create_project_passport
+    workflow: create_project_passport
+    required_memory: [product_context, methodology_context, operating_principles]
+    required_practices: [practices/product-thinking/discovery-routing.md, practices/copilot-ux/artifact-boundaries.md]
+    trace_requirement: required
+    allowed_local_memory: [local_project_context, local_working_state]
+    forbidden_claims: [pmf_proven, pcf_proven, business_impact_proven]
+    required_checks: [check-routing, check-trace-coverage]
+    fallback_when_unclear: ask_for_missing_passport_inputs
+  - task_type: review_existing_passport
+    workflow: review_existing_passport
+    required_memory: [product_context, methodology_context, operating_principles]
+    required_practices: [practices/paf/evidence-and-uncertainty.md, practices/product-thinking/decision-readiness.md]
+    trace_requirement: required
+    allowed_local_memory: [local_project_context, local_working_state]
+    forbidden_claims: [pmf_proven, pcf_proven, business_impact_proven]
+    required_checks: [check-routing, check-trace-coverage]
+    fallback_when_unclear: ask_for_passport_ref
+  - task_type: evidence_gap_review
+    workflow: evidence_gap_review
+    required_memory: [methodology_context, operating_principles]
+    required_practices: [practices/paf/evidence-and-uncertainty.md, practices/product-thinking/decision-readiness.md]
+    trace_requirement: required
+    allowed_local_memory: [local_project_context, local_working_state]
+    forbidden_claims: [pmf_proven, pcf_proven, business_impact_proven, paf_consistency_proven]
+    required_checks: [check-routing, check-trace-coverage]
+    fallback_when_unclear: ask_for_evidence_refs
+  - task_type: paf_consistency_review
+    workflow: paf_consistency_review
+    required_memory: [methodology_context, operating_principles]
+    required_practices: [practices/paf/paf-knowledge-layer.md, practices/paf/answer-modes.md, practices/paf/evidence-and-uncertainty.md]
+    trace_requirement: required
+    allowed_local_memory: [local_project_context]
+    forbidden_claims: [paf_consistency_proven_without_evidence]
+    required_checks: [check-routing, check-trace-coverage]
+    fallback_when_unclear: ask_for_paf_claim_or_artifact

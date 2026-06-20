@@ -1,0 +1,6 @@
+{
+  "automation": "weekly-copilot-review",
+  "mode": "dry-run",
+  "external_writes": false,
+  "requires_human_approval_before_changes": true
+}

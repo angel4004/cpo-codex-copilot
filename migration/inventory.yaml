@@ -1,0 +1,142 @@
+source_root: ../cpo
+items:
+  - source_file: cpo/runtime/project_setup/template_product_project_passport_template_for_cpo_copilot.md
+    source_sha: aec70136c7056dc8352af86b52a285ae15a82b476042ae939678e107f0a2a973
+    current_role: product passport template
+    classification: move-to-memory
+    new_destination: memory/templates/local-project-context.template.md
+    migration_notes: preserve as local project context/passport template seed
+    quality_risk: medium
+    owner: Ilya
+    status: pending
+    verification_refs: [evals/behavior/onboarding-minimal-case.yaml]
+  - source_file: cpo/runtime/project_setup/template_exploration_project_passport_template_for_cpo_copilot.md
+    source_sha: 72e139afb8fe04022bd099714e8a86c4cd1d926c1f8ddf4d582f94d71c691c02
+    current_role: exploration passport template
+    classification: move-to-memory
+    new_destination: memory/templates/local-project-context.template.md
+    migration_notes: preserve exploration-mode fields as local project context template inputs
+    quality_risk: medium
+    owner: Ilya
+    status: pending
+    verification_refs: [evals/behavior/onboarding-minimal-case.yaml]
+  - source_file: cpo/runtime/project_setup/start_here_activate_cpo_copilot.md
+    source_sha: ff5f8764634391f2f1bb45d18cd890a4a5ce90e1eac31812cfdb7a8d97e21bc1
+    current_role: GPT Project activation protocol
+    classification: split
+    new_destination: AGENTS.md;ROUTING.yaml;workflows/activation/activate-cpo-copilot.md
+    migration_notes: convert launch protocol into Codex bootloader and activation workflow
+    quality_risk: high
+    owner: Ilya
+    status: migrated-v0.1-skeleton
+    verification_refs: [evals/structural/agent-instructions-smoke.md]
+  - source_file: cpo/runtime/project_setup/readme_how_to_set_up_a_cpo_copilot_project.md
+    source_sha: aec170e1c8c58b671fb1ce9e069fb18e6fd8980870c9995ea2bc951c91a89c77
+    current_role: GPT Project setup instructions
+    classification: split
+    new_destination: README.md;docs/runtime-contract.md
+    migration_notes: keep install/update shape but remove GPT Project assumptions
+    quality_risk: medium
+    owner: Ilya
+    status: migrated-v0.1-skeleton
+    verification_refs: [evals/structural/installation-smoke.md]
+  - source_file: cpo/runtime/project_setup/prompt_launch_cpo_copilot.md
+    source_sha: fe6c4c0d3e73cb063d2f0660a72b015401186c9ffe03b6bb374930b3ebf134be
+    current_role: first GPT Project chat prompt
+    classification: retire
+    new_destination: retired;replaced-by-AGENTS-activation
+    migration_notes: launch prompt is no longer runtime source in Codex-first workspace
+    quality_risk: low
+    owner: Ilya
+    status: retired
+    verification_refs: [workflows/activation/activate-cpo-copilot.md]
+  - source_file: cpo/runtime/project_setup/method_recommended_product_context_schema_for_cpo_copilot.md
+    source_sha: be6010d171002702e78e7719140e7d92d2bbc3f5c9a2cc9e9ace94eb51616505
+    current_role: product context schema
+    classification: move-to-memory
+    new_destination: memory/templates/local-project-context.template.md
+    migration_notes: use as local project context and passport input schema
+    quality_risk: medium
+    owner: Ilya
+    status: pending
+    verification_refs: [tools/check-memory-metadata.ps1]
+  - source_file: cpo/runtime/project_setup/method_recommended_exploration_context_schema_for_cpo_copilot.md
+    source_sha: fab90eb70e55efba34b22899154a8352fe44b5bfe41c1873745ac7ddc8a18265
+    current_role: exploration context schema
+    classification: move-to-memory
+    new_destination: memory/templates/local-project-context.template.md
+    migration_notes: use as exploration-mode local context schema
+    quality_risk: medium
+    owner: Ilya
+    status: pending
+    verification_refs: [tools/check-memory-metadata.ps1]
+  - source_file: cpo/runtime/project_setup/method_project_passport_review_and_hardening_for_cpo_copilot.md
+    source_sha: 7cdebfc2814eeb6f524741be12d3655a5369b777382b465a92d86036b2d7cf50
+    current_role: passport review and hardening method
+    classification: convert-to-workflow
+    new_destination: workflows/onboarding/review-existing-passport.md;workflows/onboarding/harden-project-passport.md
+    migration_notes: convert into traceable passport review/hardening workflows
+    quality_risk: high
+    owner: Ilya
+    status: migrated-v0.1-skeleton
+    verification_refs: [evals/behavior/existing-passport-review-case.yaml]
+  - source_file: cpo/runtime/project_setup/method_cpo_copilot_project_instruction_template.md
+    source_sha: a4063aa3417e8b5505c016f5cd0d7a1f4ef0662f513affe7439b011aef45be0d
+    current_role: GPT Project instruction template
+    classification: split
+    new_destination: AGENTS.md;CONSTITUTION.md;docs/runtime-contract.md
+    migration_notes: split into Codex bootloader, semantic contract and runtime boundary
+    quality_risk: high
+    owner: Ilya
+    status: migrated-v0.1-skeleton
+    verification_refs: [evals/structural/agent-instructions-smoke.md]
+  - source_file: cpo/runtime/project_setup/checklist_cpo_copilot_setup_checklist.md
+    source_sha: 48422845684848c0ef5567c36e3a3295810f807cc7fbf9aa60412fa3f6840897
+    current_role: setup checklist
+    classification: turn-into-eval
+    new_destination: evals/structural/installation-smoke.md;tools/run-smoke.ps1
+    migration_notes: convert setup readiness into structural smoke gate
+    quality_risk: medium
+    owner: Ilya
+    status: migrated-v0.1-skeleton
+    verification_refs: [tools/run-smoke.ps1]
+  - source_file: cpo/runtime/core/method_paf_answer_modes.md
+    source_sha: 3687c17a529972cc7260ca90b59b261178829c5e8e5b6566685487ba63c601dd
+    current_role: PAF answer modes
+    classification: keep-as-practice
+    new_destination: practices/paf/answer-modes.md
+    migration_notes: preserve as practice layer
+    quality_risk: medium
+    owner: Ilya
+    status: migrated-v0.1-skeleton
+    verification_refs: [practices/paf/answer-modes.md]
+  - source_file: cpo/runtime/core/method_evidence_and_uncertainty_policy.md
+    source_sha: ff29c7212f26ea9ace3e84d5e493ca4368074e46d0f63facf2c0b6b373534135
+    current_role: evidence and uncertainty policy
+    classification: keep-as-practice
+    new_destination: practices/paf/evidence-and-uncertainty.md
+    migration_notes: preserve as evidence practice and eval rubric input
+    quality_risk: high
+    owner: Ilya
+    status: migrated-v0.1-skeleton
+    verification_refs: [evals/rubrics/evidence-quality-rubric.md]
+  - source_file: cpo/runtime/core/method_cpo_copilot_ux_kernel.md
+    source_sha: 5006a3e0b3dd724e0c354bf26a4fb7d9375639cf131f6b3178587bd5efd8df8b
+    current_role: CPO Copilot UX kernel
+    classification: split
+    new_destination: CONSTITUTION.md;practices/copilot-ux/dialogue-first.md;practices/copilot-ux/one-action-per-turn.md;practices/copilot-ux/artifact-boundaries.md
+    migration_notes: split into semantic role and UX practices
+    quality_risk: high
+    owner: Ilya
+    status: migrated-v0.1-skeleton
+    verification_refs: [practices/copilot-ux/dialogue-first.md]
+  - source_file: cpo/runtime/core/canon_paf_knowledge_layer.md
+    source_sha: f59c35f57af66472485374a052c27922774b9924e804636500250e7eef830afe
+    current_role: PAF knowledge canon
+    classification: keep-as-practice
+    new_destination: practices/paf/paf-knowledge-layer.md
+    migration_notes: preserve as PAF practice layer
+    quality_risk: high
+    owner: Ilya
+    status: migrated-v0.1-skeleton
+    verification_refs: [practices/paf/paf-knowledge-layer.md]

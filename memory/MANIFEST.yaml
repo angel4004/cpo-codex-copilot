@@ -1,0 +1,61 @@
+memory:
+  - memory_id: product_context
+    path: memory/shared/product-context.md
+    authority: shared_curated
+    sensitivity: public_internal
+    load_when: [activation, onboarding, create_project_passport, review_existing_passport]
+    claim_keys: [copilot.identity, copilot.modes, copilot.artifacts]
+    source_of_truth: CPO Copilot design and migrated cpo runtime
+    freshness: stable
+    owner: Ilya
+    conflict_policy: shared_wins
+  - memory_id: methodology_context
+    path: memory/shared/methodology-context.md
+    authority: shared_curated
+    sensitivity: public_internal
+    load_when: [activation, onboarding, evidence_gap_review, paf_consistency_review]
+    claim_keys: [paf.scope, paf.answer_modes, evidence.policy]
+    source_of_truth: PAF methodology and migrated cpo runtime
+    freshness: review_on_paf_change
+    owner: Ilya
+    conflict_policy: shared_wins
+  - memory_id: operating_principles
+    path: memory/shared/operating-principles.md
+    authority: shared_curated
+    sensitivity: public_internal
+    load_when: [all]
+    claim_keys: [copilot.operating_rules, privacy.boundary, approval.boundary]
+    source_of_truth: AGENTS.md and CONSTITUTION.md
+    freshness: stable
+    owner: Ilya
+    conflict_policy: shared_wins
+  - memory_id: local_user_profile
+    path: memory/templates/local-user-profile.template.md
+    authority: local_user
+    sensitivity: local_private_template
+    load_when: [activation, all]
+    claim_keys: [user.preference.language, user.preference.style]
+    source_of_truth: user local memory
+    freshness: local_user_managed
+    owner: local_user
+    conflict_policy: allow_local_overlay
+  - memory_id: local_project_context
+    path: memory/templates/local-project-context.template.md
+    authority: local_project
+    sensitivity: local_private_template
+    load_when: [onboarding, create_project_passport, review_existing_passport, evidence_gap_review, paf_consistency_review]
+    claim_keys: [project.context, project.evidence, project.constraints]
+    source_of_truth: user local memory
+    freshness: local_user_managed
+    owner: local_user
+    conflict_policy: report_conflict
+  - memory_id: local_working_state
+    path: memory/templates/local-working-state.template.md
+    authority: local_session
+    sensitivity: local_private_template
+    load_when: [all]
+    claim_keys: [workflow.state, active.artifacts, open.questions]
+    source_of_truth: user local memory
+    freshness: volatile
+    owner: local_user
+    conflict_policy: allow_local_overlay

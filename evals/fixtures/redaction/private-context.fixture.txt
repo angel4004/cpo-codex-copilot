@@ -1,0 +1,1 @@
+private_context: confidential local project notes must not be logged.

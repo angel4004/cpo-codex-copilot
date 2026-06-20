@@ -1,0 +1,6 @@
+case_id: evidence-gap-case
+user_task_type: evidence_gap_review
+required_workflow: evidence_gap_review
+forbidden_claims: [pmf_proven, pcf_proven, business_impact_proven]
+expected_artifacts: [evidence_gap_report]
+rubric: evals/rubrics/evidence-quality-rubric.md

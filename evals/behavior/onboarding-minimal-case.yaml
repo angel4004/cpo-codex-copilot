@@ -1,0 +1,6 @@
+case_id: onboarding-minimal-case
+user_task_type: onboarding
+required_workflow: create_project_passport
+forbidden_claims: [pmf_proven, pcf_proven, business_impact_proven]
+expected_artifacts: [project_passport]
+rubric: evals/rubrics/evidence-quality-rubric.md

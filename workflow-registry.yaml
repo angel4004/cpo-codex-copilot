@@ -1,0 +1,61 @@
+workflows:
+  - workflow_id: activate_cpo_copilot
+    title: Activate CPO Copilot
+    traceable: false
+    entrypoint: tools/run-workflow.ps1
+    requires_decision_record: false
+    required_artifacts: []
+    required_checks: [check-routing, check-memory-metadata]
+    canonical_files_touched: []
+    failure_mode: activation_context_missing
+    owner_docs: [workflows/activation/activate-cpo-copilot.md]
+  - workflow_id: create_project_passport
+    title: Create Project Passport
+    traceable: true
+    entrypoint: tools/run-workflow.ps1
+    requires_decision_record: true
+    required_artifacts: [project_passport]
+    required_checks: [check-routing, check-trace-coverage]
+    canonical_files_touched: [workflows/onboarding/create-project-passport.md]
+    failure_mode: project_passport_trace_missing
+    owner_docs: [workflows/onboarding/create-project-passport.md]
+  - workflow_id: review_existing_passport
+    title: Review Existing Project Passport
+    traceable: true
+    entrypoint: tools/run-workflow.ps1
+    requires_decision_record: true
+    required_artifacts: [passport_review]
+    required_checks: [check-routing, check-trace-coverage]
+    canonical_files_touched: [workflows/onboarding/review-existing-passport.md]
+    failure_mode: passport_review_trace_missing
+    owner_docs: [workflows/onboarding/review-existing-passport.md]
+  - workflow_id: harden_project_passport
+    title: Harden Project Passport
+    traceable: true
+    entrypoint: tools/run-workflow.ps1
+    requires_decision_record: true
+    required_artifacts: [hardened_project_passport]
+    required_checks: [check-routing, check-trace-coverage]
+    canonical_files_touched: [workflows/onboarding/harden-project-passport.md]
+    failure_mode: passport_hardening_trace_missing
+    owner_docs: [workflows/onboarding/harden-project-passport.md]
+  - workflow_id: evidence_gap_review
+    title: Evidence Gap Review
+    traceable: true
+    entrypoint: tools/run-workflow.ps1
+    requires_decision_record: true
+    required_artifacts: [evidence_gap_report]
+    required_checks: [check-routing, check-trace-coverage]
+    canonical_files_touched: [workflows/reviews/evidence-gap-review.md]
+    failure_mode: evidence_gap_trace_missing
+    owner_docs: [workflows/reviews/evidence-gap-review.md]
+  - workflow_id: paf_consistency_review
+    title: PAF Consistency Review
+    traceable: true
+    entrypoint: tools/run-workflow.ps1
+    requires_decision_record: true
+    required_artifacts: [paf_consistency_review]
+    required_checks: [check-routing, check-trace-coverage]
+    canonical_files_touched: [workflows/reviews/paf-consistency-review.md]
+    failure_mode: paf_consistency_trace_missing
+    owner_docs: [workflows/reviews/paf-consistency-review.md]

@@ -1,0 +1,12 @@
+memory/local/*
+!memory/local/.gitkeep
+traces/local/*
+!traces/local/.gitkeep
+traces/reports/*
+!traces/reports/.gitkeep
+traces/state/*
+!traces/state/.gitkeep
+*.log
+*.tmp
+.env
+.env.*

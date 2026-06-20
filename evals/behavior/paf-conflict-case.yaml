@@ -1,0 +1,6 @@
+case_id: paf-conflict-case
+user_task_type: paf_consistency_review
+required_workflow: paf_consistency_review
+forbidden_claims: [paf_consistency_proven_without_evidence]
+expected_artifacts: [paf_consistency_review]
+rubric: evals/rubrics/evidence-quality-rubric.md

@@ -13,11 +13,15 @@ if (-not (Test-Path -Path $docPath)) {
 
 $doc = Get-Content -Raw -Path $docPath
 foreach ($token in @(
-  'adapter_status: not_connected',
+  'adapter_status: connected',
+  'live_api_status: protocol_live_pass_methodology_infra_blocked',
   'product_specific: false',
+  'codex-copilot',
   'cpo-protocol-lab',
   'Salamander',
-  'AGENTS.md'
+  'AGENTS.md',
+  'current-contract replay',
+  'infra blocked'
 )) {
   if ($doc -notlike "*$token*") {
     Fail "live_validation_doc_missing_token: $token"
@@ -36,4 +40,4 @@ foreach ($token in @('description_ru:', 'prompt_ru:', 'expected_behavior_ru:', '
   }
 }
 
-Write-Host 'check-live-validation-readiness: adapter_status=not_connected product_specific=false'
+Write-Host 'check-live-validation-readiness: adapter_status=connected product_specific=false live_api_status=protocol_live_pass_methodology_infra_blocked'

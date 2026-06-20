@@ -1,7 +1,7 @@
 ---
-adapter_status: not_connected
+adapter_status: connected
 product_specific: false
-live_api_status: not_run
+live_api_status: protocol_live_pass_methodology_infra_blocked
 validated_target: cpo-codex-copilot
 ---
 
@@ -18,23 +18,30 @@ review.
   expected behavior.
 - `evals/protocol/protocol-lab-adapter-smoke.case.yaml` фиксирует generic
   adapter smoke case.
-- `tools/check-live-validation-readiness.ps1` проверяет, что live-validation gap
-  явно описан и не маскируется под pass.
+- `cpo-protocol-lab` имеет suite `codex-copilot`, который собирает source bundle
+  из Codex-native workspace через `AGENTS.md`, а не из legacy GPT Project
+  package.
+- Root-loop `tools/full-live-codex-copilot-quality.ps1` запускает smoke,
+  live protocol artifacts / current-contract replay и methodology audit через
+  `Salamander` или фиксирует `infra blocked`, если provider API недоступен.
+- `tools/check-live-validation-readiness.ps1` проверяет, что adapter подключен,
+  repo остается product-agnostic, а текущий live gap не маскируется под pass.
 
-## Что не доказано
+## Текущий статус
 
-Existing `cpo-protocol-lab` читает legacy source bundle из `../cpo`:
-`runtime/core/*.md`, `runtime/project_setup/*.md` и launch prompt. Existing
-`Salamander` также ожидает CPO working package / source snapshot старого типа.
+Protocol layer подключен и проверяет новый `cpo-codex-copilot` через
+`AGENTS.md`, `CONSTITUTION.md`, `docs/runtime-contract.md`, `ROUTING.yaml`,
+`workflow-registry.yaml`, `memory/MANIFEST.yaml`, relevant workflows/practices
+и shared memory. Live protocol transcripts по generic русскоязычным scenarios
+можно переигрывать через current-contract replay.
 
-Новый `cpo-codex-copilot` запускается через `AGENTS.md`, `CONSTITUTION.md`,
-`docs/runtime-contract.md`, `ROUTING.yaml`, workflows, practices и memory
-manifest. Поэтому старый full-live loop нельзя считать проверкой нового
-Codex-native Copilot.
+Full live readiness пока не равен `pass`: methodology layer подключен к root
+оркестратору, но последний live prep может завершиться `infra blocked`, если у
+провайдера нет кредитов или подходящего API key.
 
 ## Условие full API live validation
 
-Чтобы заявлять full API live validation для этого repo, нужен adapter, который:
+Чтобы заявлять full API live validation для этого repo, root-loop должен:
 
 1. собирает source bundle из `AGENTS.md`, `CONSTITUTION.md`,
    `docs/runtime-contract.md`, `ROUTING.yaml`, `workflow-registry.yaml`,
@@ -47,5 +54,5 @@ Codex-native Copilot.
    forbidden claims;
 6. не пишет raw private context, raw prompts, raw tool args или raw tool output.
 
-До появления такого adapter статус остается `adapter_status: not_connected` и
-`live_api_status: not_run`.
+Если protocol pass, но methodology API недоступен, итоговый статус должен быть
+`infra blocked`, а не `pass`.

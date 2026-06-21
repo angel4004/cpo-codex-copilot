@@ -8,7 +8,7 @@ $RepoRoot = Split-Path -Parent $PSScriptRoot
 & (Join-Path $PSScriptRoot 'run-smoke.ps1')
 if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
 
-$canonical = @('AGENTS.md','CONSTITUTION.md','ROUTING.yaml','workflow-registry.yaml','memory/','practices/','workflows/','skill-candidates/','evals/','observability/','migration/','tools/')
+$canonical = @('AGENTS.md','CONSTITUTION.md','ROUTING.yaml','workflow-registry.yaml','memory/','practices/','workflows/','skills/','evals/','observability/','migration/','tools/')
 $staged = & git -C $RepoRoot diff --cached --name-only
 $touchedCanonical = @()
 foreach ($file in $staged) {

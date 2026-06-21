@@ -6,20 +6,36 @@
 Физический entrypoint для Codex - `AGENTS.md`. Главный смысловой контракт -
 `CONSTITUTION.md`. Локальные проверки лежат в `tools/`.
 
-## Установка
+## Быстрый старт
 
 ```powershell
-git clone <repo-url> cpo-codex-copilot
+git clone https://github.com/angel4004/cpo-codex-copilot.git cpo-codex-copilot
 cd cpo-codex-copilot
-Copy-Item memory/templates/local-user-profile.template.md memory/local/user-profile.md
-Copy-Item memory/templates/local-working-state.template.md memory/local/working-state.md
-powershell -NoProfile -File tools/run-smoke.ps1
+powershell -NoProfile -File tools/setup-local-workspace.ps1
 ```
 
 Затем открой папку в Codex и напиши:
 
 ```text
 Активируй CPO Copilot
+```
+
+Подробный сценарий установки, обновления и безопасной локальной памяти:
+[docs/install.md](docs/install.md).
+
+## Что делает setup
+
+- создает `memory/local/`, если папки нет;
+- копирует локальные шаблоны памяти в `memory/local/`, если файлов еще нет;
+- не перезаписывает личную память пользователя;
+- запускает `tools/run-smoke.ps1`;
+- оставляет локальные memory/traces ignored by git.
+
+## Обновление
+
+```powershell
+git pull --ff-only
+powershell -NoProfile -File tools/setup-local-workspace.ps1
 ```
 
 ## Текущий статус
@@ -31,6 +47,12 @@ powershell -NoProfile -File tools/run-smoke.ps1
 - Готовность русскоязычного UX: проверяется `tools/check-language.ps1`.
 - PAF/live behavior readiness: доказывается только отдельным behavior/protocol
   прогоном; structural smoke сам по себе этого не доказывает.
+
+## Не используй старый repo
+
+Legacy GPT Project repo `angel4004/cpo` заархивирован и больше не является
+основной веткой развития. Для Codex-first Copilot используй только
+`angel4004/cpo-codex-copilot`.
 
 ## Граница безопасности
 

@@ -59,13 +59,3 @@ workflows:
     canonical_files_touched: [workflows/reviews/paf-consistency-review.md]
     failure_mode: paf_consistency_trace_missing
     owner_docs: [workflows/reviews/paf-consistency-review.md]
-  - workflow_id: paf_canon_update_review
-    title: Обновление PAF-канона через source review
-    traceable: true
-    entrypoint: tools/run-workflow.ps1
-    requires_decision_record: true
-    required_artifacts: [canonical_update_proposal]
-    required_checks: [check-routing, check-paf-canon-updater-skill, check-trace-coverage]
-    canonical_files_touched: [skill-candidates/paf-canon-updater/sources/paf-source-registry.yaml, practices/paf/paf-knowledge-layer.md, memory/shared/methodology-context.md]
-    failure_mode: paf_canon_update_review_missing
-    owner_docs: [workflows/improvement/paf-canon-update-review.md, skill-candidates/paf-canon-updater/SKILL.md]

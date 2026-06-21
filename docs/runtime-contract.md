@@ -25,9 +25,8 @@ traceable workflows.
 ## Что делают local tools
 
 Local tools проверяют structure, links, memory metadata, memory conflicts,
-routing, eval schema, PAF canon updater readiness, redaction fixtures, trace
-coverage, migration inventory, language readiness и commit readiness. Эти
-checks являются mechanical gates.
+routing, eval schema, redaction fixtures, trace coverage, migration inventory,
+language readiness и commit readiness. Эти checks являются mechanical gates.
 
 ## Что остается prompt-level
 

@@ -6,10 +6,10 @@ source_of_truth: migrated cpo runtime/core and design spec
 verification_status: v0.1-curated
 authority: shared_curated
 sensitivity: public_internal
-load_when: activation,onboarding,evidence_gap_review,paf_consistency_review,paf_canon_update
-claim_keys: paf.scope,paf.answer_modes,paf.sources,evidence.policy
+load_when: activation,onboarding,evidence_gap_review,paf_consistency_review
+claim_keys: paf.scope,paf.answer_modes,evidence.policy
 freshness: review_on_paf_change
-related_docs: practices/paf/paf-knowledge-layer.md,practices/paf/evidence-and-uncertainty.md,skill-candidates/paf-canon-updater/sources/paf-source-registry.yaml
+related_docs: practices/paf/paf-knowledge-layer.md,practices/paf/evidence-and-uncertainty.md
 known_staleness_risks: PAF reference layer can evolve outside this repo
 ---
 
@@ -27,5 +27,5 @@ claims.
 - какое решение пока не ready.
 
 Если появляется новая PAF-страница или авторский внешний сигнал, не считай его
-частью канона автоматически. Сначала используй `paf_canon_update` и подготовь
-proposal-first diff с source authority, affected claim keys и review boundary.
+частью канона автоматически. Отметь methodology freshness gap и попроси
+curated update от разработчика копилота.

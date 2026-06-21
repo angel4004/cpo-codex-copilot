@@ -29,9 +29,6 @@ powershell -NoProfile -File tools/run-smoke.ps1
 - Готовность trace: локальный runner и checks доступны; live-выполнение Codex
   hooks должно быть отдельно trusted and verified в локальной установке.
 - Готовность русскоязычного UX: проверяется `tools/check-language.ps1`.
-- Готовность PAF source freshness: skill-кандидат
-  `skill-candidates/paf-canon-updater` проверяется
-  `tools/check-paf-canon-updater-skill.ps1`.
 - PAF/live behavior readiness: доказывается только отдельным behavior/protocol
   прогоном; structural smoke сам по себе этого не доказывает.
 

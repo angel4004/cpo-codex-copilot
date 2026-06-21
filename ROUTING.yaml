@@ -60,13 +60,3 @@ routes:
     forbidden_claims: [paf_consistency_proven_without_evidence]
     required_checks: [check-routing, check-trace-coverage]
     fallback_when_unclear: ask_for_paf_claim_or_artifact
-  - task_type: paf_canon_update
-    description_ru: Проверка новых PAF-источников и подготовка proposal-first обновления канона.
-    workflow: paf_canon_update_review
-    required_memory: [methodology_context, operating_principles]
-    required_practices: [practices/paf/paf-knowledge-layer.md, practices/paf/evidence-and-uncertainty.md]
-    trace_requirement: required
-    allowed_local_memory: [local_working_state]
-    forbidden_claims: [paf_source_canonical_without_review, paf_consistency_proven_without_evidence]
-    required_checks: [check-routing, check-paf-canon-updater-skill, check-trace-coverage]
-    fallback_when_unclear: ask_for_source_url_or_seed

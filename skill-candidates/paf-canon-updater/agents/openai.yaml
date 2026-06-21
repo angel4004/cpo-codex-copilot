@@ -1,4 +1,0 @@
-interface:
-  display_name: "Обновление PAF-канона"
-  short_description: "PAF-источники и review канона"
-  default_prompt: "Use $paf-canon-updater to проверить новые PAF-источники и подготовить proposal-first обновление канона."

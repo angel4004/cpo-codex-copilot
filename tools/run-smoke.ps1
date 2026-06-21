@@ -11,7 +11,6 @@ $commands = @(
   'check-routing.ps1',
   'check-eval-schema.ps1',
   'check-live-validation-readiness.ps1',
-  'check-paf-canon-updater-skill.ps1',
   'check-redaction-fixtures.ps1',
   'check-trace-coverage.ps1',
   'check-migration-coverage.ps1'

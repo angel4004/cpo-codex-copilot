@@ -21,16 +21,16 @@ $event = [ordered]@{
   copilot_version = '0.1.0'
   user_task_type = $state.workflow_id
   workflow_used = $state.workflow_id
-  instructions_loaded = @('AGENTS.md','CONSTITUTION.md','docs/runtime-contract.md')
-  memory_refs = @()
-  practice_refs = @()
+  instructions_loaded = @('AGENTS.md','CONSTITUTION.md','docs/runtime-contract.md','workflow-registry.yaml','ROUTING.yaml','memory/MANIFEST.yaml')
+  memory_refs = @($state.required_memory | ForEach-Object { "memory:$($_)" })
+  practice_refs = @($state.required_practices)
   evidence_refs = @()
   decision_summary = 'closed by local runner'
   missing_inputs = @()
   forbidden_claim_labels = @()
   approval_required = $false
   approval_state = 'not_required'
-  checks_run = @()
+  checks_run = @($state.required_checks)
   artifact_refs = $ArtifactRefs
   redaction_policy = 'observability/redaction-policy.md'
   final_status = $FinalStatus
@@ -39,16 +39,19 @@ $event = [ordered]@{
     session_id = 'runner_validated'
     trace_enforcement_level = 'runner_validated'
     workflow_used = 'runner_validated'
+    memory_refs = 'runner_validated'
+    practice_refs = 'runner_validated'
+    checks_run = 'runner_validated'
     decision_summary = 'agent_declared'
   }
 }
 
 $json = $event | ConvertTo-Json -Depth 8 -Compress
 & (Join-Path $PSScriptRoot 'write-trace-event.ps1') -EventJson $json
-if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+if (-not $?) { exit 1 }
 
 $state.status = 'closed'
-$state.closed_at = (Get-Date).ToUniversalTime().ToString('o')
+$state | Add-Member -NotePropertyName closed_at -NotePropertyValue (Get-Date).ToUniversalTime().ToString('o') -Force
 $state | ConvertTo-Json -Depth 5 | Set-Content -Path $statePath -Encoding utf8
 
 $decisionPath = Join-Path $RepoRoot ("traces/reports/decision-$($state.trace_id).md")

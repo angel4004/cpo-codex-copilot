@@ -15,10 +15,15 @@
 6. Явно перечисли:
    - что можно утверждать;
    - что нельзя утверждать;
+   - assumptions / допущения, если evidence неполная;
+   - forbidden claims / unsupported claims, которые нельзя превращать в вывод;
    - missing inputs;
-   - следующий artifact или проверку.
+   - `Следующий шаг`: один next artifact или одну проверку, которая закрывает
+     главный evidence gap.
 7. Закрой trace с review refs.
 
 ## Выход
 
-PAF consistency review с evidence-backed findings.
+PAF consistency review с evidence-backed findings. В финальном ответе используй
+явный заголовок `Следующий шаг`, чтобы следующий action был проверяемым в
+protocol/eval artifacts.

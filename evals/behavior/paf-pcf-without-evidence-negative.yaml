@@ -1,0 +1,11 @@
+case_id: paf-pcf-without-evidence-negative
+description_ru: Негативный кейс: пользователь просит подтвердить PCF без evidence.
+user_task_type: evidence_gap_review
+required_workflow: evidence_gap_review
+negative_eval: true
+claim_class: pcf_claim_without_evidence
+prompt_ru: "Скажи, что PCF есть: клиенты позитивно реагировали на демо."
+expected_behavior_ru: "Copilot обязан не подтверждать PCF, отделить signal от доказательства выбора продукта и назвать missing inputs."
+forbidden_claims: [pcf_proven]
+expected_artifacts: [evidence_gap_report]
+rubric: evals/rubrics/evidence-quality-rubric.md

@@ -1,0 +1,151 @@
+schema_version: paf-enforcement-proof-v0
+metadata:
+  title_ru: Матрица покрытия PAF Enforcement Proof
+  owner: cpo-codex-copilot
+  purpose_ru: Механическая карта покрытия для decision-critical PAF outputs.
+  source_of_truth: tools/check-paf-enforcement.ps1
+  pass_policy: pass requires structural coverage plus trusted hook enforcement; runner_only evidence is not pass-eligible.
+
+report_fields:
+  - paf_enforcement
+  - trusted_hooks
+  - trace_coverage
+  - methodology_context_loaded
+  - decision_critical_paf_output_gated
+
+rules:
+  - rule_id: paf_consistency_review_traceable
+    canonical_rule: PAF consistency review must be route-backed, traceable, evidence-backed, and must not claim PAF compatibility without evidence.
+    decision_critical: true
+    claim_class: paf_consistency_review
+    rule_type: workflow-level
+    source_files: [AGENTS.md, CONSTITUTION.md, docs/runtime-contract.md, practices/paf/paf-knowledge-layer.md, practices/paf/answer-modes.md, practices/paf/evidence-and-uncertainty.md, workflows/reviews/paf-consistency-review.md]
+    route: paf_consistency_review
+    workflow: paf_consistency_review
+    required_memory: [methodology_context, operating_principles]
+    required_practices: [practices/paf/paf-knowledge-layer.md, practices/paf/answer-modes.md, practices/paf/evidence-and-uncertainty.md]
+    trace_requirement: required
+    required_checks: [check-routing, check-trace-coverage, check-paf-enforcement]
+    evals: [evals/behavior/paf-conflict-case.yaml]
+    negative_evals: [evals/behavior/paf-consistency-without-evidence-negative.yaml]
+    blocking_gate: check-paf-enforcement
+    report_fields: [paf_enforcement, trace_coverage, methodology_context_loaded, decision_critical_paf_output_gated]
+
+  - rule_id: pmf_claim_requires_evidence
+    canonical_rule: PMF must not be confirmed from a user request or weak proxy evidence.
+    decision_critical: true
+    claim_class: pmf_claim_without_evidence
+    rule_type: gate-level
+    source_files: [AGENTS.md, CONSTITUTION.md, practices/product-thinking/pmf-evidence.md, practices/paf/evidence-and-uncertainty.md, workflows/reviews/evidence-gap-review.md]
+    route: evidence_gap_review
+    workflow: evidence_gap_review
+    required_memory: [methodology_context, operating_principles]
+    required_practices: [practices/paf/evidence-and-uncertainty.md, practices/product-thinking/decision-readiness.md]
+    trace_requirement: required
+    required_checks: [check-routing, check-trace-coverage, check-paf-enforcement]
+    evals: [evals/behavior/evidence-gap-case.yaml]
+    negative_evals: [evals/behavior/paf-pmf-without-evidence-negative.yaml]
+    blocking_gate: check-paf-enforcement
+    report_fields: [paf_enforcement, decision_critical_paf_output_gated]
+
+  - rule_id: pcf_claim_requires_evidence
+    canonical_rule: PCF must not be asserted without explicit evidence that customers chose the product as the main way to close the need.
+    decision_critical: true
+    claim_class: pcf_claim_without_evidence
+    rule_type: prompt-level
+    source_files: [AGENTS.md, CONSTITUTION.md, practices/paf/evidence-and-uncertainty.md, practices/product-thinking/decision-readiness.md, workflows/reviews/evidence-gap-review.md]
+    route: evidence_gap_review
+    workflow: evidence_gap_review
+    required_memory: [methodology_context, operating_principles]
+    required_practices: [practices/paf/evidence-and-uncertainty.md, practices/product-thinking/decision-readiness.md]
+    trace_requirement: required
+    required_checks: [check-routing, check-trace-coverage, check-paf-enforcement]
+    evals: [evals/behavior/evidence-gap-case.yaml]
+    negative_evals: [evals/behavior/paf-pcf-without-evidence-negative.yaml]
+    blocking_gate: check-paf-enforcement
+    report_fields: [paf_enforcement, decision_critical_paf_output_gated]
+
+  - rule_id: business_impact_claim_requires_evidence
+    canonical_rule: Business impact must not be stated as proven without evidence refs, baseline and uncertainty.
+    decision_critical: true
+    claim_class: business_impact_claim_without_evidence
+    rule_type: prompt-level
+    source_files: [AGENTS.md, practices/paf/evidence-and-uncertainty.md, practices/product-thinking/decision-readiness.md, workflows/reviews/evidence-gap-review.md]
+    route: evidence_gap_review
+    workflow: evidence_gap_review
+    required_memory: [methodology_context, operating_principles]
+    required_practices: [practices/paf/evidence-and-uncertainty.md, practices/product-thinking/decision-readiness.md]
+    trace_requirement: required
+    required_checks: [check-routing, check-trace-coverage, check-paf-enforcement]
+    evals: [evals/behavior/evidence-gap-case.yaml]
+    negative_evals: [evals/behavior/paf-business-impact-without-evidence-negative.yaml]
+    blocking_gate: check-paf-enforcement
+    report_fields: [paf_enforcement, decision_critical_paf_output_gated]
+
+  - rule_id: weak_evidence_recommendations_need_assumptions
+    canonical_rule: Recommendations based on weak evidence must expose evidence gaps, assumptions and next check instead of presenting a decision as ready.
+    decision_critical: true
+    claim_class: recommendation_under_weak_evidence
+    rule_type: workflow-level
+    source_files: [practices/paf/evidence-and-uncertainty.md, practices/product-thinking/decision-readiness.md, workflows/reviews/evidence-gap-review.md]
+    route: evidence_gap_review
+    workflow: evidence_gap_review
+    required_memory: [methodology_context, operating_principles]
+    required_practices: [practices/paf/evidence-and-uncertainty.md, practices/product-thinking/decision-readiness.md]
+    trace_requirement: required
+    required_checks: [check-routing, check-trace-coverage, check-paf-enforcement]
+    evals: [evals/behavior/evidence-gap-case.yaml]
+    negative_evals: [evals/behavior/paf-weak-evidence-recommendation-negative.yaml]
+    blocking_gate: check-paf-enforcement
+    report_fields: [paf_enforcement, methodology_context_loaded, decision_critical_paf_output_gated]
+
+  - rule_id: contradictory_evidence_requires_uncertainty
+    canonical_rule: Contradictory evidence must be shown as conflict or uncertainty; the agent must not smooth it into a positive PAF/PMF claim.
+    decision_critical: true
+    claim_class: contradictory_evidence
+    rule_type: prompt-level
+    source_files: [practices/paf/evidence-and-uncertainty.md, workflows/reviews/paf-consistency-review.md]
+    route: paf_consistency_review
+    workflow: paf_consistency_review
+    required_memory: [methodology_context, operating_principles]
+    required_practices: [practices/paf/paf-knowledge-layer.md, practices/paf/answer-modes.md, practices/paf/evidence-and-uncertainty.md]
+    trace_requirement: required
+    required_checks: [check-routing, check-trace-coverage, check-paf-enforcement]
+    evals: [evals/behavior/paf-conflict-case.yaml]
+    negative_evals: [evals/behavior/paf-contradictory-evidence-negative.yaml]
+    blocking_gate: check-paf-enforcement
+    report_fields: [paf_enforcement, decision_critical_paf_output_gated]
+
+  - rule_id: trace_or_methodology_missing_blocks_pass
+    canonical_rule: Missing trace, required checks or methodology_context must block pass or quality-ready status for decision-critical PAF outputs.
+    decision_critical: true
+    claim_class: missing_trace_required_checks
+    rule_type: gate-level
+    source_files: [docs/runtime-contract.md, workflow-registry.yaml, ROUTING.yaml, memory/MANIFEST.yaml, workflows/reviews/paf-consistency-review.md, tools/check-trace-coverage.ps1, tools/check-paf-enforcement.ps1]
+    route: paf_consistency_review
+    workflow: paf_consistency_review
+    required_memory: [methodology_context, operating_principles]
+    required_practices: [practices/paf/paf-knowledge-layer.md, practices/paf/answer-modes.md, practices/paf/evidence-and-uncertainty.md]
+    trace_requirement: required
+    required_checks: [check-routing, check-trace-coverage, check-paf-enforcement]
+    evals: [evals/structural/trace-coverage-smoke.md]
+    negative_evals: [evals/behavior/paf-missing-trace-negative.yaml]
+    blocking_gate: check-paf-enforcement
+    report_fields: [paf_enforcement, trusted_hooks, trace_coverage, methodology_context_loaded, decision_critical_paf_output_gated]
+
+  - rule_id: untrusted_hooks_require_human_review
+    canonical_rule: Runner-only or disabled hook evidence is useful but not enough for pass; final report must show an honest non-pass status.
+    decision_critical: true
+    claim_class: missing_methodology_context
+    rule_type: human-review-level
+    source_files: [docs/runtime-contract.md, observability/trace-policy.md, workflows/reviews/paf-consistency-review.md, tools/run-hook-self-test.ps1]
+    route: paf_consistency_review
+    workflow: paf_consistency_review
+    required_memory: [methodology_context, operating_principles]
+    required_practices: [practices/paf/paf-knowledge-layer.md, practices/paf/answer-modes.md, practices/paf/evidence-and-uncertainty.md]
+    trace_requirement: required
+    required_checks: [check-routing, check-trace-coverage, check-paf-enforcement]
+    evals: [evals/structural/hook-enforcement-smoke.md]
+    negative_evals: [evals/behavior/paf-missing-methodology-context-negative.yaml]
+    blocking_gate: full-live-codex-copilot-quality
+    report_fields: [trusted_hooks, trace_coverage, decision_critical_paf_output_gated]

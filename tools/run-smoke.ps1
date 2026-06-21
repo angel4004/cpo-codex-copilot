@@ -13,6 +13,7 @@ $commands = @(
   'check-live-validation-readiness.ps1',
   'check-redaction-fixtures.ps1',
   'check-trace-coverage.ps1',
+  'check-paf-enforcement.ps1',
   'check-migration-coverage.ps1'
 )
 

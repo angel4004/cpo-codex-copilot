@@ -48,7 +48,7 @@ routes:
     trace_requirement: required
     allowed_local_memory: [local_project_context, local_working_state]
     forbidden_claims: [pmf_proven, pcf_proven, business_impact_proven, paf_consistency_proven]
-    required_checks: [check-routing, check-trace-coverage]
+    required_checks: [check-routing, check-trace-coverage, check-paf-enforcement]
     fallback_when_unclear: ask_for_evidence_refs
   - task_type: paf_consistency_review
     description_ru: Проверка PAF consistency без overclaiming.
@@ -58,5 +58,5 @@ routes:
     trace_requirement: required
     allowed_local_memory: [local_project_context]
     forbidden_claims: [paf_consistency_proven_without_evidence]
-    required_checks: [check-routing, check-trace-coverage]
+    required_checks: [check-routing, check-trace-coverage, check-paf-enforcement]
     fallback_when_unclear: ask_for_paf_claim_or_artifact

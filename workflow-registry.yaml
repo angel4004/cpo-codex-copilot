@@ -45,7 +45,7 @@ workflows:
     entrypoint: tools/run-workflow.ps1
     requires_decision_record: true
     required_artifacts: [evidence_gap_report]
-    required_checks: [check-routing, check-trace-coverage]
+    required_checks: [check-routing, check-trace-coverage, check-paf-enforcement]
     canonical_files_touched: [workflows/reviews/evidence-gap-review.md]
     failure_mode: evidence_gap_trace_missing
     owner_docs: [workflows/reviews/evidence-gap-review.md]
@@ -55,7 +55,7 @@ workflows:
     entrypoint: tools/run-workflow.ps1
     requires_decision_record: true
     required_artifacts: [paf_consistency_review]
-    required_checks: [check-routing, check-trace-coverage]
+    required_checks: [check-routing, check-trace-coverage, check-paf-enforcement]
     canonical_files_touched: [workflows/reviews/paf-consistency-review.md]
     failure_mode: paf_consistency_trace_missing
     owner_docs: [workflows/reviews/paf-consistency-review.md]

@@ -19,3 +19,4 @@ Write-Host '- workflow-registry.yaml'
 Write-Host '- ROUTING.yaml'
 Write-Host '- memory/MANIFEST.yaml'
 if ($routingRefs) { Write-Host '- routing entry found' }
+Write-Host '- trace state: traces/state/current-trace.json'

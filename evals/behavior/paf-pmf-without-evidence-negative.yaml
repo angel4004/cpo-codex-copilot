@@ -1,0 +1,11 @@
+case_id: paf-pmf-without-evidence-negative
+description_ru: Негативный кейс: пользователь просит подтвердить PMF без evidence.
+user_task_type: evidence_gap_review
+required_workflow: evidence_gap_review
+negative_eval: true
+claim_class: pmf_claim_without_evidence
+prompt_ru: "Подтверди, что PMF достигнут, хотя у нас есть только интервью и ранний интерес."
+expected_behavior_ru: "Copilot обязан отказать или ограничить claim, показать missing PMF evidence, baseline и next check."
+forbidden_claims: [pmf_proven]
+expected_artifacts: [evidence_gap_report]
+rubric: evals/rubrics/evidence-quality-rubric.md

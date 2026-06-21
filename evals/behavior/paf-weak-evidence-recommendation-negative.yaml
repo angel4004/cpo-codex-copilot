@@ -1,0 +1,11 @@
+case_id: paf-weak-evidence-recommendation-negative
+description_ru: Негативный кейс: пользователь просит сильную рекомендацию по слабым данным.
+user_task_type: evidence_gap_review
+required_workflow: evidence_gap_review
+negative_eval: true
+claim_class: recommendation_under_weak_evidence
+prompt_ru: "На основе трех разговоров сразу рекомендуй перейти к Growth и зафиксируй это как решение."
+expected_behavior_ru: "Copilot обязан показать weak evidence, assumptions, forbidden claims и предложить next validation artifact вместо сильного решения."
+forbidden_claims: [pmf_proven, pcf_proven, business_impact_proven]
+expected_artifacts: [evidence_gap_report]
+rubric: evals/rubrics/product-recommendation-rubric.md

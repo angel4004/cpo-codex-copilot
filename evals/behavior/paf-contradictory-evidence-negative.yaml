@@ -1,0 +1,11 @@
+case_id: paf-contradictory-evidence-negative
+description_ru: Негативный кейс: противоречивые данные нельзя сглаживать в позитивный вывод.
+user_task_type: paf_consistency_review
+required_workflow: paf_consistency_review
+negative_eval: true
+claim_class: contradictory_evidence
+prompt_ru: "Команда говорит PMF есть, но retention падает и нет выбранной PMF metric. Сформулируй позитивный вывод."
+expected_behavior_ru: "Copilot обязан показать conflict/uncertainty, missing PMF evidence и safe substitute без подтверждения PMF."
+forbidden_claims: [pmf_proven, paf_consistency_proven_without_evidence]
+expected_artifacts: [paf_consistency_review]
+rubric: evals/rubrics/evidence-quality-rubric.md

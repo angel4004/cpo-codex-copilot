@@ -1,0 +1,423 @@
+schema_version: 1
+metadata:
+  title_ru: Реестр источников PAF для обновления канона
+  owner: cpo-codex-copilot
+  status_ru: controlled_skill_candidate
+  last_seed_update: 2026-06-21
+  canonical_targets:
+    - practices/paf/paf-knowledge-layer.md
+    - practices/paf/answer-modes.md
+    - practices/paf/evidence-and-uncertainty.md
+    - memory/shared/methodology-context.md
+
+sources:
+  - source_id: paf_official_home
+    title_ru: Product Architecture Framework
+    url: https://productframework.ru/
+    authority: official_paf_index
+    canonical_allowed: false
+    requires_human_review: true
+    monitor: true
+    claim_keys: [paf.site.index]
+    notes_ru: Навигационный источник для поиска новых PAF-страниц.
+
+  - source_id: paf_official_library
+    title_ru: Лекториум PAF
+    url: https://productframework.ru/library
+    authority: official_paf_index
+    canonical_allowed: false
+    requires_human_review: true
+    monitor: true
+    claim_keys: [paf.site.library]
+    notes_ru: Индекс статей, видео и публикаций; целевые страницы проверяются отдельно.
+
+  - source_id: paf_ops_main
+    title_ru: AI Product Operations
+    url: https://productframework.ru/ops/main
+    authority: official_paf
+    canonical_allowed: true
+    requires_human_review: true
+    monitor: true
+    claim_keys: [paf.ops.ai_product_operations, paf.ops.roles, paf.ops.portfolio]
+    notes_ru: Новый слой PAF, отсутствовавший в локальном каноне на момент проверки 2026-06-21.
+
+  - source_id: paf_product_life_cycle
+    title_ru: Product Life Cycle
+    url: https://productframework.ru/product_life_cycle
+    authority: official_paf
+    canonical_allowed: true
+    requires_human_review: false
+    monitor: true
+    claim_keys: [paf.product_life_cycle]
+    notes_ru: Уже учтен в legacy PAF canon, но должен мониториться на изменения.
+
+  - source_id: paf_product_discovery
+    title_ru: Product Discovery
+    url: https://productframework.ru/product_discovery
+    authority: official_paf
+    canonical_allowed: true
+    requires_human_review: false
+    monitor: true
+    claim_keys: [paf.product_discovery]
+    notes_ru: Уже учтен в legacy PAF canon, но должен мониториться на изменения.
+
+  - source_id: paf_feature_life_cycle
+    title_ru: Feature Life Cycle
+    url: https://productframework.ru/feature_life_cycle
+    authority: official_paf
+    canonical_allowed: true
+    requires_human_review: false
+    monitor: true
+    claim_keys: [paf.feature_life_cycle]
+    notes_ru: Уже учтен в legacy PAF canon.
+
+  - source_id: paf_principles
+    title_ru: Принципы бизнеса и продукта
+    url: https://productframework.ru/principles
+    authority: official_paf
+    canonical_allowed: true
+    requires_human_review: false
+    monitor: true
+    claim_keys: [paf.principles]
+    notes_ru: Уже учтен в legacy PAF canon.
+
+  - source_id: paf_hypothesis
+    title_ru: Hypothesis
+    url: https://productframework.ru/hypothesis
+    authority: official_paf
+    canonical_allowed: true
+    requires_human_review: false
+    monitor: true
+    claim_keys: [paf.hypothesis]
+    notes_ru: Уже учтен в legacy PAF canon.
+
+  - source_id: paf_value_and_north_star
+    title_ru: Ценность и North Star
+    url: https://productframework.ru/value_and_north_star
+    authority: official_paf
+    canonical_allowed: true
+    requires_human_review: false
+    monitor: true
+    claim_keys: [paf.value, paf.north_star]
+    notes_ru: Уже учтен в legacy PAF canon.
+
+  - source_id: paf_product_market_fit
+    title_ru: Алгоритм выбора метрик для PMF
+    url: https://productframework.ru/product_market_fit
+    authority: official_paf
+    canonical_allowed: true
+    requires_human_review: false
+    monitor: true
+    claim_keys: [paf.pmf.metrics]
+    notes_ru: Уже учтен в legacy PAF canon.
+
+  - source_id: paf_product_evolution_cycle
+    title_ru: Цикл эволюции продукта
+    url: https://productframework.ru/product_evolution_cycle
+    authority: official_paf
+    canonical_allowed: true
+    requires_human_review: false
+    monitor: true
+    claim_keys: [paf.product_evolution]
+    notes_ru: Уже учтен в legacy PAF canon.
+
+  - source_id: paf_discovery_triangle
+    title_ru: Если ресурсов не хватает
+    url: https://productframework.ru/discovery_triangle
+    authority: official_paf
+    canonical_allowed: true
+    requires_human_review: false
+    monitor: true
+    claim_keys: [paf.discovery.resources]
+    notes_ru: Уже учтен в legacy PAF canon.
+
+  - source_id: paf_hypotheses_customer
+    title_ru: Customer hypotheses
+    url: https://productframework.ru/hypotheses/customer
+    authority: official_paf
+    canonical_allowed: true
+    requires_human_review: false
+    monitor: true
+    claim_keys: [paf.hypotheses.customer]
+    notes_ru: Уже учтен в legacy PAF canon.
+
+  - source_id: paf_hypotheses_value_proposition
+    title_ru: Value proposition hypotheses
+    url: https://productframework.ru/hypotheses/value_proposition
+    authority: official_paf
+    canonical_allowed: true
+    requires_human_review: false
+    monitor: true
+    claim_keys: [paf.hypotheses.value_proposition]
+    notes_ru: Уже учтен в legacy PAF canon.
+
+  - source_id: paf_hypotheses_solution
+    title_ru: Solution hypotheses
+    url: https://productframework.ru/hypotheses/solution
+    authority: official_paf
+    canonical_allowed: true
+    requires_human_review: false
+    monitor: true
+    claim_keys: [paf.hypotheses.solution]
+    notes_ru: Уже учтен в legacy PAF canon.
+
+  - source_id: paf_hypotheses_business_model
+    title_ru: Business model hypotheses
+    url: https://productframework.ru/hypotheses/business_model
+    authority: official_paf
+    canonical_allowed: true
+    requires_human_review: false
+    monitor: true
+    claim_keys: [paf.hypotheses.business_model]
+    notes_ru: Уже учтен в legacy PAF canon.
+
+  - source_id: paf_activity_market_analysis
+    title_ru: Market Analysis
+    url: https://productframework.ru/activities/market_analysis
+    authority: official_paf
+    canonical_allowed: true
+    requires_human_review: false
+    monitor: true
+    claim_keys: [paf.activities.market_analysis]
+    notes_ru: Уже учтен в legacy PAF canon.
+
+  - source_id: paf_activity_competitors_analysis
+    title_ru: Competitors Analysis
+    url: https://productframework.ru/activities/competitors_analysis
+    authority: official_paf
+    canonical_allowed: true
+    requires_human_review: false
+    monitor: true
+    claim_keys: [paf.activities.competitors_analysis]
+    notes_ru: Уже учтен в legacy PAF canon.
+
+  - source_id: paf_activity_value_proposition_research
+    title_ru: Value Proposition Research
+    url: https://productframework.ru/activities/value_proposition_research
+    authority: official_paf
+    canonical_allowed: true
+    requires_human_review: false
+    monitor: true
+    claim_keys: [paf.activities.value_proposition_research]
+    notes_ru: Уже учтен в legacy PAF canon.
+
+  - source_id: paf_activity_business_model_research
+    title_ru: Business Model Research
+    url: https://productframework.ru/activities/business_model_research
+    authority: official_paf
+    canonical_allowed: true
+    requires_human_review: false
+    monitor: true
+    claim_keys: [paf.activities.business_model_research]
+    notes_ru: Уже учтен в legacy PAF canon.
+
+  - source_id: paf_activity_competitive_positioning_design
+    title_ru: Competitive Positioning Design
+    url: https://productframework.ru/activities/competitive_positioning_design
+    authority: official_paf
+    canonical_allowed: true
+    requires_human_review: false
+    monitor: true
+    claim_keys: [paf.activities.competitive_positioning_design]
+    notes_ru: Уже учтен в legacy PAF canon.
+
+  - source_id: paf_activity_acquisition_strategy_design
+    title_ru: Acquisition Strategy Design
+    url: https://productframework.ru/activities/acquisition_strategy_design
+    authority: official_paf
+    canonical_allowed: true
+    requires_human_review: false
+    monitor: true
+    claim_keys: [paf.activities.acquisition_strategy_design]
+    notes_ru: Уже учтен в legacy PAF canon.
+
+  - source_id: paf_activity_activation_strategy_design
+    title_ru: Activation Strategy Design
+    url: https://productframework.ru/activities/activation_strategy_design
+    authority: official_paf
+    canonical_allowed: true
+    requires_human_review: false
+    monitor: true
+    claim_keys: [paf.activities.activation_strategy_design]
+    notes_ru: Уже учтен в legacy PAF canon.
+
+  - source_id: paf_activity_solution_prototyping
+    title_ru: Solution Prototyping
+    url: https://productframework.ru/activities/solution_prototyping
+    authority: official_paf
+    canonical_allowed: true
+    requires_human_review: false
+    monitor: true
+    claim_keys: [paf.activities.solution_prototyping]
+    notes_ru: Уже учтен в legacy PAF canon.
+
+  - source_id: paf_activity_business_logic_design
+    title_ru: Business Logic Design
+    url: https://productframework.ru/activities/business_logic_design
+    authority: official_paf
+    canonical_allowed: true
+    requires_human_review: false
+    monitor: true
+    claim_keys: [paf.activities.business_logic_design]
+    notes_ru: Уже учтен в legacy PAF canon.
+
+  - source_id: paf_activity_requirements_design
+    title_ru: Requirements Design
+    url: https://productframework.ru/activities/requirements_design
+    authority: official_paf
+    canonical_allowed: true
+    requires_human_review: false
+    monitor: true
+    claim_keys: [paf.activities.requirements_design]
+    notes_ru: Уже учтен в legacy PAF canon.
+
+  - source_id: paf_activity_quantitative_analytics
+    title_ru: Quantitative Analytics
+    url: https://productframework.ru/activities/quantitative_analytics
+    authority: official_paf
+    canonical_allowed: true
+    requires_human_review: false
+    monitor: true
+    claim_keys: [paf.activities.quantitative_analytics]
+    notes_ru: Уже учтен в legacy PAF canon.
+
+  - source_id: paf_activity_qualitative_analytics
+    title_ru: Qualitative Analytics
+    url: https://productframework.ru/activities/qualitative_analytics
+    authority: official_paf
+    canonical_allowed: true
+    requires_human_review: false
+    monitor: true
+    claim_keys: [paf.activities.qualitative_analytics]
+    notes_ru: Уже учтен в legacy PAF canon.
+
+  - source_id: paf_activity_acquisition_configuration_research
+    title_ru: Acquisition Configuration Research
+    url: https://productframework.ru/activities/acquisition_configuration_research
+    authority: official_paf
+    canonical_allowed: true
+    requires_human_review: false
+    monitor: true
+    claim_keys: [paf.activities.acquisition_configuration_research]
+    notes_ru: Уже учтен в legacy PAF canon.
+
+  - source_id: paf_activity_customer_research
+    title_ru: Customer Research
+    url: https://productframework.ru/activities/customer_research
+    authority: official_paf
+    canonical_allowed: true
+    requires_human_review: true
+    monitor: true
+    claim_keys: [paf.activities.customer_research]
+    notes_ru: Найдено source freshness review; требует проверки против текущего PAF canon.
+
+  - source_id: paf_activity_segment_scoring
+    title_ru: Segment Scoring
+    url: https://productframework.ru/activities/segment_scoring
+    authority: official_paf
+    canonical_allowed: true
+    requires_human_review: true
+    monitor: true
+    claim_keys: [paf.activities.segment_scoring]
+    notes_ru: Найдено source freshness review; требует проверки против текущего PAF canon.
+
+  - source_id: paf_ai_product_roles
+    title_ru: AI Product Roles
+    url: https://productframework.ru/ai_product_roles
+    authority: official_paf
+    canonical_allowed: true
+    requires_human_review: true
+    monitor: true
+    claim_keys: [paf.ops.ai_product_roles, paf.roles]
+    notes_ru: Новый PAF/AI Operations источник; требует упаковки перед попаданием в practices или routing.
+
+  - source_id: paf_product_ecosystem_map
+    title_ru: Product Ecosystem Map
+    url: https://productframework.ru/product_ecosystem_map
+    authority: official_paf
+    canonical_allowed: true
+    requires_human_review: true
+    monitor: true
+    claim_keys: [paf.ops.product_ecosystem, paf.portfolio]
+    notes_ru: Новый PAF/ops источник; требует review.
+
+  - source_id: paf_customer_context
+    title_ru: Customer Context
+    url: https://productframework.ru/customer_context
+    authority: official_paf
+    canonical_allowed: true
+    requires_human_review: true
+    monitor: true
+    claim_keys: [paf.customer_context]
+    notes_ru: Новый или ранее неупакованный источник; требует review.
+
+  - source_id: paf_tam_sam_som
+    title_ru: TAM SAM SOM
+    url: https://productframework.ru/tam_sam_som
+    authority: official_paf
+    canonical_allowed: true
+    requires_human_review: true
+    monitor: true
+    claim_keys: [paf.market_sizing]
+    notes_ru: Новый или ранее неупакованный источник; требует review.
+
+  - source_id: paf_barb_farm_cultures
+    title_ru: Barb Farm Cultures
+    url: https://productframework.ru/barb_farm_cultures
+    authority: official_paf
+    canonical_allowed: true
+    requires_human_review: true
+    monitor: true
+    claim_keys: [paf.ops.culture]
+    notes_ru: Новый или ранее неупакованный источник; требует review.
+
+  - source_id: paf_gameofpaf_history
+    title_ru: История Game of PAF
+    url: https://productframework.ru/articles/gameofpaf_history
+    authority: official_paf
+    canonical_allowed: true
+    requires_human_review: true
+    monitor: true
+    claim_keys: [paf.game.history]
+    notes_ru: Исторический источник; не превращать в runtime rule без review.
+
+  - source_id: paf_game_of_paf
+    title_ru: Game of PAF
+    url: https://productframework.ru/gameofpaf
+    authority: official_paf
+    canonical_allowed: true
+    requires_human_review: true
+    monitor: true
+    claim_keys: [paf.game, paf.learning_model]
+    notes_ru: Может содержать пояснения модели, но game content не превращается в runtime rule без review.
+
+  - source_id: paf_skill_map
+    title_ru: Product Manager Skill Map
+    url: https://productframework.ru/skill_map
+    authority: official_paf
+    canonical_allowed: true
+    requires_human_review: true
+    monitor: true
+    claim_keys: [paf.skill_map, paf.roles]
+    notes_ru: Может влиять на role model, но требует отдельной упаковки.
+
+  - source_id: boroda_producta_telegram
+    title_ru: Борода продакта
+    url: https://t.me/productclub
+    public_web_url: https://t.me/s/productclub
+    authority: author_public_channel
+    canonical_allowed: false
+    requires_human_review: true
+    monitor: manual_only
+    claim_keys: [paf.author_updates]
+    notes_ru: Публичный канал Сергея Тихомирова; источник freshness-сигналов, но не канонический PAF source без review.
+
+  - source_id: sergey_tikhomirov_public_profile
+    title_ru: Публичный профиль Сергея Тихомирова
+    url: https://britishdesign.ru/about/tutors/313780/
+    authority: candidate_context
+    canonical_allowed: false
+    requires_human_review: true
+    monitor: manual_only
+    claim_keys: [paf.author_context]
+    notes_ru: Внешний контекст для проверки связи автора, PAF и канала; не источник методологических правил.

@@ -16,8 +16,8 @@ memory:
     path: memory/shared/methodology-context.md
     authority: shared_curated
     sensitivity: public_internal
-    load_when: [activation, onboarding, evidence_gap_review, paf_consistency_review]
-    claim_keys: [paf.scope, paf.answer_modes, evidence.policy]
+    load_when: [activation, onboarding, evidence_gap_review, paf_consistency_review, paf_canon_update]
+    claim_keys: [paf.scope, paf.answer_modes, paf.sources, evidence.policy]
     source_of_truth: PAF methodology and migrated cpo runtime
     freshness: review_on_paf_change
     owner: Ilya
@@ -49,7 +49,7 @@ memory:
     path: memory/templates/local-project-context.template.md
     authority: local_project
     sensitivity: local_private_template
-    load_when: [onboarding, create_project_passport, review_existing_passport, evidence_gap_review, paf_consistency_review]
+    load_when: [onboarding, create_project_passport, review_existing_passport, evidence_gap_review, paf_consistency_review, paf_canon_update]
     claim_keys: [project.context, project.evidence, project.constraints]
     source_of_truth: user local memory
     freshness: local_user_managed

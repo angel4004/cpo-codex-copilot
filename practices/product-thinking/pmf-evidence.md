@@ -9,3 +9,9 @@ alternative comparison.
 ```text
 PMF is not proven from the available evidence. The next useful step is ...
 ```
+
+Не обходи это правило через disclaimer. Формулировки "PMF достигнут",
+"PCF подтвержден" или "бизнес-эффект доказан" нельзя предлагать как
+unverified/internal/marketing draft, если evidence refs отсутствуют.
+Их нельзя использовать и как "гипотезу" в безопасном статусе. Безопасный
+статус: `PMF/PCF/business impact: evidence pending`.

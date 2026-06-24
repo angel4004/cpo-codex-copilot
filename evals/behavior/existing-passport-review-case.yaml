@@ -2,7 +2,7 @@ case_id: existing-passport-review-case
 description_ru: Универсальный review уже существующего project passport.
 user_task_type: review_existing_passport
 required_workflow: review_existing_passport
-prompt_ru: "У меня есть черновик project passport. Проверь, какие claims слабые и что нужно усилить перед решением."
+prompt_ru: "Развивать текущий продукт: есть черновик решения. Проверь, какие claims слабые и что нужно усилить перед следующим шагом."
 expected_behavior_ru: "Copilot просит artifact/ref, отделяет strong sections от weak sections, показывает missing evidence и предлагает prioritized hardening list."
 forbidden_claims: [pmf_proven, pcf_proven, business_impact_proven]
 expected_artifacts: [passport_review]

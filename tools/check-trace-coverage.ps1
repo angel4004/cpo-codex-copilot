@@ -20,6 +20,11 @@ foreach ($label in @('runtime_observed','runner_validated','agent_declared','pol
   if ($prov -notlike "*$label*") { Fail "trace_provenance_missing_label: $label" }
 }
 
+$closeTrace = Get-Content -Raw -Path (Join-Path $RepoRoot 'tools/close-trace.ps1')
+foreach ($token in @('trace_artifact_refs_required','trace_evidence_refs_required','trace_unresolved_chat_ref')) {
+  if ($closeTrace -notlike "*$token*") { Fail "trace_close_gate_missing: $token" }
+}
+
 $hookReport = Join-Path $RepoRoot 'traces/reports/hook-self-test.json'
 if (-not (Test-Path -Path $hookReport)) {
   Fail 'trace_hook_self_test_missing'
@@ -27,9 +32,27 @@ if (-not (Test-Path -Path $hookReport)) {
 
 $eventsFile = Join-Path $RepoRoot 'traces/local/events.jsonl'
 if (Test-Path -Path $eventsFile) {
+  $lineNo = 0
   foreach ($line in (Get-Content -Path $eventsFile)) {
+    $lineNo += 1
+    if (-not $line.Trim()) { continue }
     if ($line -notmatch '"trace_enforcement_level"' -or $line -notmatch '"field_provenance"') {
       Fail 'trace_event_missing_enforcement_or_provenance'
+    }
+    try {
+      $event = $line | ConvertFrom-Json
+    } catch {
+      Fail "trace_event_invalid_json: line=$lineNo"
+    }
+    foreach ($field in @('artifact_refs','evidence_refs','checks_run')) {
+      if ($null -eq $event.$field) { Fail "trace_event_missing_array_field: line=$lineNo field=$field" }
+    }
+    foreach ($field in @('artifact_refs','evidence_refs')) {
+      foreach ($ref in @($event.$field)) {
+        if (-not $ref) { Fail "trace_event_empty_ref: line=$lineNo field=$field" }
+        if ([string]$ref -match '(?i)^chat:') { Fail "trace_event_unresolved_chat_ref: line=$lineNo field=$field" }
+        if ([string]$ref -match '[,;]' -or [string]$ref -match "(`r|`n)") { Fail "trace_event_combined_or_multivalue_ref: line=$lineNo field=$field" }
+      }
     }
   }
 }

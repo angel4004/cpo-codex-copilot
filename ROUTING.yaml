@@ -1,7 +1,7 @@
 description_ru: Продукт-агностичный router связывает task type, workflow, memory, practices и trace requirement.
 routes:
   - task_type: activation
-    description_ru: Активация Copilot и выбор режима.
+    description_ru: Активация Copilot и readable JTBD-развилка пользовательской работы.
     workflow: activate_cpo_copilot
     required_memory: [product_context, methodology_context, operating_principles]
     required_practices: [practices/copilot-ux/dialogue-first.md, practices/copilot-ux/artifact-boundaries.md]
@@ -9,7 +9,7 @@ routes:
     allowed_local_memory: [local_user_profile, local_working_state]
     forbidden_claims: [pmf_proven, pcf_proven, business_impact_proven]
     required_checks: [check-routing, check-memory-metadata]
-    fallback_when_unclear: ask_for_target_mode
+    fallback_when_unclear: ask_which_product_work_to_advance
   - task_type: onboarding
     description_ru: Первичный onboarding нового продукта или exploration context.
     workflow: create_project_passport
@@ -40,6 +40,16 @@ routes:
     forbidden_claims: [pmf_proven, pcf_proven, business_impact_proven]
     required_checks: [check-routing, check-trace-coverage]
     fallback_when_unclear: ask_for_passport_ref
+  - task_type: harden_project_passport
+    description_ru: Усиление существующего project passport после review или явной просьбы улучшить decision-readiness.
+    workflow: harden_project_passport
+    required_memory: [product_context, methodology_context, operating_principles]
+    required_practices: [practices/paf/evidence-and-uncertainty.md, practices/product-thinking/decision-readiness.md, practices/copilot-ux/artifact-boundaries.md]
+    trace_requirement: required
+    allowed_local_memory: [local_project_context, local_working_state]
+    forbidden_claims: [pmf_proven, pcf_proven, business_impact_proven]
+    required_checks: [check-routing, check-trace-coverage]
+    fallback_when_unclear: ask_for_passport_ref_or_review_findings
   - task_type: evidence_gap_review
     description_ru: Проверка evidence gaps перед рекомендацией.
     workflow: evidence_gap_review

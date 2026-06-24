@@ -1,6 +1,8 @@
 param(
   [string]$FinalStatus = 'closed',
-  [string[]]$ArtifactRefs = @()
+  [string[]]$ArtifactRefs = @(),
+  [string[]]$EvidenceRefs = @(),
+  [string]$DecisionSummary = 'closed by local runner'
 )
 
 $ErrorActionPreference = 'Stop'
@@ -12,6 +14,51 @@ if (-not (Test-Path -Path $statePath)) {
 }
 
 $state = Get-Content -Raw -Path $statePath | ConvertFrom-Json
+
+function Fail($Message) {
+  Write-Error $Message
+  exit 1
+}
+
+function Get-InlineList {
+  param(
+    [Parameter(Mandatory=$true)][string]$Body,
+    [Parameter(Mandatory=$true)][string]$Field
+  )
+  $match = [regex]::Match($Body, "(?m)^\s+${Field}:\s*\[(.*?)\]\s*$")
+  if (-not $match.Success) { return @() }
+  return @($match.Groups[1].Value -split ',' | ForEach-Object { $_.Trim() } | Where-Object { $_ })
+}
+
+function Assert-SafeRefs {
+  param(
+    [Parameter(Mandatory=$true)][string]$Field,
+    [string[]]$Refs = @()
+  )
+  foreach ($ref in @($Refs)) {
+    if (-not $ref) { Fail "trace_ref_empty: field=$Field" }
+    if ($ref -match '(?i)^chat:') { Fail "trace_unresolved_chat_ref: field=$Field ref=$ref" }
+    if ($ref -match '[,;]' -or $ref -match "(`r|`n)") { Fail "trace_ref_combined_or_multivalue: field=$Field ref=$ref" }
+  }
+}
+
+$registry = Get-Content -Raw -Path (Join-Path $RepoRoot 'workflow-registry.yaml')
+$workflowMatch = [regex]::Match($registry, "(?ms)^\s*-\s+workflow_id:\s*$([regex]::Escape($state.workflow_id))\s*(.*?)(?=^\s*-\s+workflow_id:|\z)")
+$workflowBody = if ($workflowMatch.Success) { $workflowMatch.Groups[1].Value } else { "" }
+$requiredArtifacts = @(Get-InlineList $workflowBody 'required_artifacts')
+
+Assert-SafeRefs 'artifact_refs' $ArtifactRefs
+Assert-SafeRefs 'evidence_refs' $EvidenceRefs
+
+if ($requiredArtifacts.Count -gt 0) {
+  if (@($ArtifactRefs).Count -eq 0) {
+    Fail "trace_artifact_refs_required: workflow=$($state.workflow_id) required=$($requiredArtifacts -join '|')"
+  }
+  if (@($EvidenceRefs).Count -eq 0) {
+    Fail "trace_evidence_refs_required: workflow=$($state.workflow_id)"
+  }
+}
+
 $event = [ordered]@{
   trace_id = $state.trace_id
   session_id = $state.session_id
@@ -24,8 +71,8 @@ $event = [ordered]@{
   instructions_loaded = @('AGENTS.md','CONSTITUTION.md','docs/runtime-contract.md','workflow-registry.yaml','ROUTING.yaml','memory/MANIFEST.yaml')
   memory_refs = @($state.required_memory | ForEach-Object { "memory:$($_)" })
   practice_refs = @($state.required_practices)
-  evidence_refs = @()
-  decision_summary = 'closed by local runner'
+  evidence_refs = $EvidenceRefs
+  decision_summary = $DecisionSummary
   missing_inputs = @()
   forbidden_claim_labels = @()
   approval_required = $false
@@ -42,6 +89,8 @@ $event = [ordered]@{
     memory_refs = 'runner_validated'
     practice_refs = 'runner_validated'
     checks_run = 'runner_validated'
+    artifact_refs = 'runner_validated'
+    evidence_refs = 'runner_validated'
     decision_summary = 'agent_declared'
   }
 }
@@ -62,8 +111,16 @@ workflow_id: $($state.workflow_id)
 trace_id: $($state.trace_id)
 status: $FinalStatus
 
-This runner-generated record proves the local trace can be closed. Human CPO
-decision content must be filled during real workflows.
+Decision summary: $DecisionSummary
+
+Artifact refs:
+$(@($ArtifactRefs) | ForEach-Object { "- $_" } | Out-String)
+Evidence refs:
+$(@($EvidenceRefs) | ForEach-Object { "- $_" } | Out-String)
+
+This runner-generated record proves the local trace can be closed. Treat it as
+operational evidence; replace with a human-authored decision record when the
+workflow makes a real CPO decision.
 "@ | Set-Content -Path $decisionPath -Encoding utf8
 
 Write-Host "close-trace: $($state.trace_id)"

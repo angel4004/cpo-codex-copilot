@@ -16,6 +16,7 @@ $memoryIds = [regex]::Matches($manifest, '(?m)^\s*-\s+memory_id:\s*(\S+)') | For
 $routes = [regex]::Matches($routing, '(?ms)^\s*-\s+task_type:\s*([^\r\n]+)(.*?)(?=^\s*-\s+task_type:|\z)')
 if ($routes.Count -eq 0) { Fail 'routing_no_routes' }
 
+$routeWorkflowSet = @{}
 foreach ($route in $routes) {
   $taskType = $route.Groups[1].Value.Trim()
   $body = $route.Groups[2].Value
@@ -28,6 +29,7 @@ foreach ($route in $routes) {
   if ($workflowIds -notcontains $workflow) {
     Fail "route_unknown_workflow: $taskType workflow=$workflow"
   }
+  $routeWorkflowSet[$workflow] = $true
   $memLine = ([regex]::Match($body, '(?m)^\s+required_memory:\s*\[(.*?)\]')).Groups[1].Value
   foreach ($mem in ($memLine -split ',' | ForEach-Object { $_.Trim() } | Where-Object { $_ })) {
     if ($memoryIds -notcontains $mem) {
@@ -39,6 +41,12 @@ foreach ($route in $routes) {
     if (-not (Test-Path -Path (Join-Path $RepoRoot $practice))) {
       Fail "route_missing_practice: $taskType practice=$practice"
     }
+  }
+}
+
+foreach ($workflowId in $workflowIds) {
+  if (-not $routeWorkflowSet.ContainsKey($workflowId)) {
+    Fail "workflow_unrouted: $workflowId"
   }
 }
 

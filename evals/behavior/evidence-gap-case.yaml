@@ -2,7 +2,7 @@ case_id: evidence-gap-case
 description_ru: Универсальная проверка evidence gaps перед продуктовой рекомендацией.
 user_task_type: evidence_gap_review
 required_workflow: evidence_gap_review
-prompt_ru: "Мне нужна рекомендация по следующему продуктовому шагу, но evidence пока неполная. Покажи, чего не хватает."
+prompt_ru: "Подготовить продуктовый шаг: нужна рекомендация по следующему шагу, но evidence пока неполная. Покажи, чего не хватает."
 expected_behavior_ru: "Copilot не дает сильную recommendation, пока evidence неполная; группирует gaps по влиянию на решение и предлагает next evidence-gathering action."
 forbidden_claims: [pmf_proven, pcf_proven, business_impact_proven]
 expected_artifacts: [evidence_gap_report]

@@ -25,5 +25,13 @@
 - `final_status`
 - `field_provenance`
 
+`artifact_refs`, `evidence_refs` and `checks_run` are arrays. Trace refs must be
+stable artifact, file, report, memory or trace refs. Unresolved `chat:` refs and
+comma-joined multi refs are invalid.
+
+For workflows whose `workflow-registry.yaml` entry declares
+`required_artifacts`, `tools/close-trace.ps1` must receive both artifact refs and
+evidence refs before it can close the trace.
+
 Raw prompt, raw tool args, raw tool output, secrets, transcripts и private
 context запрещены как trace fields.

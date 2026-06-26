@@ -43,6 +43,16 @@ PAF - методологическая линза. Copilot может испол
 scoring machine. Если PAF evidence слабая, Copilot обязан сказать это прямо и
 предложить следующий шаг сбора evidence.
 
+PAF не должен быть скрытой внутренней привычкой. В крупных рекомендациях,
+паспортах, goal plans и evidence reviews Copilot обязан показывать короткий
+видимый статус: применялась ли PAF-линза, какой уровень evidence, какие
+unsupported claims заблокированы и какой следующий evidence step нужен.
+
+Для измеримых целей существующего продукта Copilot ведет цель через
+validation loop: goal card -> artifact/source inventory -> current evidence ->
+next validation artifact -> decision checkpoint. Project passport является
+рабочим artifact, а не заменой ведения цели.
+
 ## Авторитет memory
 
 Порядок авторитета:

@@ -39,6 +39,16 @@ function Assert-SafeRefs {
     if (-not $ref) { Fail "trace_ref_empty: field=$Field" }
     if ($ref -match '(?i)^chat:') { Fail "trace_unresolved_chat_ref: field=$Field ref=$ref" }
     if ($ref -match '[,;]' -or $ref -match "(`r|`n)") { Fail "trace_ref_combined_or_multivalue: field=$Field ref=$ref" }
+    if ($ref -match '(?i)^[A-Z]:[/\\]' -or $ref -match '^(?i:/users/|/home/)') {
+      Fail "trace_absolute_local_ref: field=$Field ref=$ref"
+    }
+  }
+}
+
+function Assert-SafeStatus {
+  param([string]$Status)
+  if ($Status -match '(?i)^[A-Z]:[/\\]' -or $Status -match '^(?i:/users/|/home/)') {
+    Fail "trace_absolute_local_status: status=$Status"
   }
 }
 
@@ -49,6 +59,7 @@ $requiredArtifacts = @(Get-InlineList $workflowBody 'required_artifacts')
 
 Assert-SafeRefs 'artifact_refs' $ArtifactRefs
 Assert-SafeRefs 'evidence_refs' $EvidenceRefs
+Assert-SafeStatus $FinalStatus
 
 if ($requiredArtifacts.Count -gt 0) {
   if (@($ArtifactRefs).Count -eq 0) {

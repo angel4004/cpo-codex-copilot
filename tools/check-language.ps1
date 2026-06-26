@@ -14,6 +14,7 @@ $humanFiles = Get-ChildItem -Path $RepoRoot -Recurse -File -Include '*.md','*.ya
   Where-Object {
     $_.FullName -notmatch '\\.git\\' -and
     $_.FullName -notmatch '\\traces\\' -and
+    $_.FullName -notmatch '\\memory\\local\\' -and
     $_.FullName -notmatch '\\evals\\fixtures\\'
   }
 

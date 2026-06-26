@@ -20,6 +20,16 @@ routes:
     forbidden_claims: [pmf_proven, pcf_proven, business_impact_proven]
     required_checks: [check-routing, check-trace-coverage]
     fallback_when_unclear: ask_product_or_exploration_mode
+  - task_type: goal_validation
+    description_ru: Ведение измеримой цели существующего продукта через Goal Card, PAF status, source routing и next validation artifact.
+    workflow: evidence_gap_review
+    required_memory: [product_context, methodology_context, operating_principles]
+    required_practices: [practices/copilot-ux/dialogue-first.md, practices/copilot-ux/goal-led-validation.md, practices/paf/evidence-and-uncertainty.md, practices/product-thinking/decision-readiness.md]
+    trace_requirement: required
+    allowed_local_memory: [local_project_context, local_working_state]
+    forbidden_claims: [pmf_proven, pcf_proven, business_impact_proven, paf_consistency_proven]
+    required_checks: [check-routing, check-trace-coverage, check-paf-enforcement]
+    fallback_when_unclear: create_goal_card_with_assumptions
   - task_type: create_project_passport
     description_ru: Создание compact project passport из неполного контекста.
     workflow: create_project_passport

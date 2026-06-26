@@ -19,3 +19,8 @@ Traceable workflows требуют:
 `chat:` refs не являются artifact refs. Если нужный output пока существует
 только в чате, trace должен честно закрываться как evidence gap или ссылаться на
 стабильный generated/report/memory artifact после его создания.
+
+Абсолютные локальные пути не являются safe refs для trace. Если источник лежит в
+локальной рабочей области, используй repo-relative путь; если источник внешний
+или private, используй redacted source label без `C:\Users\...`, `/Users/...`
+или `/home/...`.

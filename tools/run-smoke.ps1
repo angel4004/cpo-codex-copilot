@@ -7,6 +7,7 @@ $commands = @(
   'check-links.ps1',
   'check-language.ps1',
   'check-activation-ux.ps1',
+  'check-goal-led-ux.ps1',
   'check-memory-metadata.ps1',
   'check-memory-conflicts.ps1',
   'check-routing.ps1',

@@ -27,7 +27,9 @@
 
 `artifact_refs`, `evidence_refs` and `checks_run` are arrays. Trace refs must be
 stable artifact, file, report, memory or trace refs. Unresolved `chat:` refs and
-comma-joined multi refs are invalid.
+comma-joined multi refs are invalid. Absolute local paths such as `C:\Users\...`,
+`/Users/...` or `/home/...` are invalid in refs and final status; use
+repo-relative paths, stable artifact ids or redacted source labels.
 
 For workflows whose `workflow-registry.yaml` entry declares
 `required_artifacts`, `tools/close-trace.ps1` must receive both artifact refs and

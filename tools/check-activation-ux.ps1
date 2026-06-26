@@ -64,6 +64,9 @@ foreach ($path in $activationFiles) {
   Assert-Contains -Name $path -Text $text -Needle $prepareStep
   Assert-Contains -Name $path -Text $text -Needle $disputedClaim
   Assert-Contains -Name $path -Text $text -Needle $freeForm
+  if ($path -eq 'AGENTS.md' -or $path -eq 'workflows/activation/activate-cpo-copilot.md') {
+    Assert-Contains -Name $path -Text $text -Needle 'Do not say workflow in activation output'
+  }
   Assert-NotContains -Name $path -Text $text -Needle 'review/hardening'
   Assert-NotContains -Name $path -Text $text -Needle '- evidence gap review;'
   Assert-NotContains -Name $path -Text $text -Needle '- PAF consistency review.'

@@ -52,7 +52,13 @@ if (Test-Path -Path $eventsFile) {
         if (-not $ref) { Fail "trace_event_empty_ref: line=$lineNo field=$field" }
         if ([string]$ref -match '(?i)^chat:') { Fail "trace_event_unresolved_chat_ref: line=$lineNo field=$field" }
         if ([string]$ref -match '[,;]' -or [string]$ref -match "(`r|`n)") { Fail "trace_event_combined_or_multivalue_ref: line=$lineNo field=$field" }
+        if ([string]$ref -match '(?i)^[A-Z]:[/\\]' -or [string]$ref -match '^(?i:/users/|/home/)') {
+          Fail "trace_event_absolute_local_ref: line=$lineNo field=$field"
+        }
       }
+    }
+    if ([string]$event.final_status -match '(?i)^[A-Z]:[/\\]' -or [string]$event.final_status -match '^(?i:/users/|/home/)') {
+      Fail "trace_event_absolute_local_status: line=$lineNo"
     }
   }
 }

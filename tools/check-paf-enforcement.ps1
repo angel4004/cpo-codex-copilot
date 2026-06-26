@@ -75,6 +75,17 @@ if ($script:Errors.Count -eq 0) {
   $routing = Get-Content -Raw -LiteralPath $routingPath -Encoding UTF8
   $registry = Get-Content -Raw -LiteralPath $registryPath -Encoding UTF8
   $manifest = Get-Content -Raw -LiteralPath $manifestPath -Encoding UTF8
+  $evidencePracticePath = Join-Path $RepoRoot 'practices/paf/evidence-and-uncertainty.md'
+  if (-not (Test-Path -LiteralPath $evidencePracticePath)) {
+    Add-Error "paf_enforcement_evidence_practice_missing: $evidencePracticePath"
+  } else {
+    $evidencePractice = Get-Content -Raw -LiteralPath $evidencePracticePath -Encoding UTF8
+    foreach ($pattern in @('Refusal terminal rule', 'no optional polished-status follow-up', 'next evidence step', 'PMF/PCF/business impact: evidence pending')) {
+      if ($evidencePractice -notmatch [regex]::Escape($pattern)) {
+        Add-Error "paf_enforcement_forbidden_claim_refusal_guard_missing: $pattern"
+      }
+    }
+  }
 
   foreach ($field in @('paf_enforcement','trusted_hooks','trace_coverage','methodology_context_loaded','decision_critical_paf_output_gated')) {
     if ($matrix -notmatch "(?m)^\s*-\s*$([regex]::Escape($field))\s*$") {

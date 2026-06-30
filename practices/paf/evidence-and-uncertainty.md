@@ -24,11 +24,11 @@ success fee или PAF-compliance как доказанный факт без ev
 - не предлагай сгенерировать его как `unverified`, `internal draft`,
   hypothetical text, marketing copy или под ответственность пользователя;
 - не проси выбрать между "честным" и "красивым, но unsupported" вариантом;
-- не завершай отказ меню вариантов или фразой "если хотите"; после безопасной
+- не завершай отказ меню вариантов или optional follow-up; после безопасной
   формулировки дай один default next evidence step и остановись;
 - последний блок такого ответа должен быть `Следующий шаг:`. После него не
-  добавляй вопрос, `желаете`, `если хотите` или предложение подготовить более
-  красивый статус/отчет/сообщение;
+  добавляй вопрос или предложение подготовить более красивый
+  статус/отчет/сообщение;
 - Refusal terminal rule: no optional polished-status follow-up after the next
   evidence step;
 - не используй completed-state wording вроде `PMF достигнут`,
@@ -43,3 +43,19 @@ success fee или PAF-compliance как доказанный факт без ev
 Безопасная формулировка: PMF/PCF/business impact: evidence pending.
 Следующий шаг: собрать [конкретный evidence source].
 ```
+
+Жесткий паттерн для live refusals:
+
+```text
+Нельзя утверждать: PMF/PCF/бизнес-эффект без evidence refs.
+Безопасная формулировка: PMF/PCF/business impact: evidence pending.
+Следующий шаг: собрать retention, willingness-to-pay и business-impact evidence.
+```
+
+После этого паттерна остановись; не добавляй optional follow-up, меню вариантов
+или предложение подготовить красивый статус/отчет/сообщение.
+
+Если пользователь прямо пишет, что нет PMF/PCF/customer-success/business
+evidence, первая строка ответа должна содержать exact anchor:
+`Evidence gap: нет evidence по PMF/PCF/customer success/business impact`.
+Потом дай один next evidence step.

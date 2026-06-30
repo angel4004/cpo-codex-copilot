@@ -22,4 +22,7 @@ known_staleness_risks: Codex hook behavior may change
   payloads.
 - Для traceable workflows используй workflow runner или явно фиксируй readiness
   gap.
+- Если trusted Codex hooks не доказаны, decision-critical PAF outputs остаются
+  `human review` и не считаются pass-eligible. Runner-only trace evidence
+  полезен для диагностики, но не заменяет live hook dispatch proof.
 - External writes и provider calls вне Codex runtime требуют явного approval.

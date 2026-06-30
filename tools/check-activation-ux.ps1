@@ -56,6 +56,7 @@ $oldPassportAxis = ([char]0x0423 + ' ' + [char]0x043C + [char]0x0435 + [char]0x0
 $oldIHavePrefix = ([char]0x0423 + ' ' + [char]0x043C + [char]0x0435 + [char]0x043D + [char]0x044F + ' ')
 $oldTaskLabel = ([char]0x0417 + [char]0x0430 + [char]0x0434 + [char]0x0430 + [char]0x0447 + [char]0x0430 + ':')
 $oldTaskPlaceholder = ($oldTaskLabel + ' ...')
+$whatIsCloser = ([char]0x0427 + [char]0x0442 + [char]0x043E + ' ' + [char]0x0441 + [char]0x0435 + [char]0x0439 + [char]0x0447 + [char]0x0430 + [char]0x0441 + ' ' + [char]0x0431 + [char]0x043B + [char]0x0438 + [char]0x0436 + [char]0x0435 + '?')
 
 foreach ($path in $activationFiles) {
   $text = Read-RepoText $path
@@ -66,6 +67,7 @@ foreach ($path in $activationFiles) {
   Assert-Contains -Name $path -Text $text -Needle $freeForm
   if ($path -eq 'AGENTS.md' -or $path -eq 'workflows/activation/activate-cpo-copilot.md') {
     Assert-Contains -Name $path -Text $text -Needle 'Do not say workflow in activation output'
+    Assert-Contains -Name $path -Text $text -Needle $whatIsCloser
   }
   Assert-NotContains -Name $path -Text $text -Needle 'review/hardening'
   Assert-NotContains -Name $path -Text $text -Needle '- evidence gap review;'

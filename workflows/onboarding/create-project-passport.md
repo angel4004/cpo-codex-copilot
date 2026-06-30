@@ -22,13 +22,14 @@
    разрешены routing. Если найдено несколько паспортов, сначала дай compact
    Passport Registry и различи active, historical и hypothesis passports.
 3. Если пользователь дал измеримую цель, но не просил паспорт, не подменяй
-   goal-led работу паспортом. Дай Goal Card и next validation artifact, а
-   passport предложи только как downstream artifact.
+   goal-led работу паспортом. Дай `Карта цели` и
+   `Следующий артефакт / Следующий проверочный артефакт`, а passport предложи только как downstream
+   artifact.
 4. Если пользователь запускает новую идею/направление без явного запроса на
    passport, не пиши `Draft Project Passport`, `Compact Project Passport` или
-   `[PROJECT PASSPORT]` в первом ответе. Сначала дай `First validation step`,
-   `Hypothesis backlog` или `Experiment card` с pass/fail критерием. Draft
-   Project Passport is forbidden in first new-product response.
+   `[PROJECT PASSPORT]` в первом ответе. Сначала дай literal-блок
+   `Первый шаг`, гипотезы/checks и pass/fail критерий. Draft Project Passport
+   is forbidden in first new-product response.
 5. Если пользователь попросил rough draft или дал минимальный контекст именно
    для паспорта, сразу подготовь компактный черновик в этом же ответе. Не проси
    сначала выбрать `product` или `exploration`, если можно безопасно поставить
@@ -37,8 +38,9 @@
    сделать даже черновик. Вопрос должен быть один и только после частичного
    результата.
 7. Подготовь черновик passport, разделив facts, assumptions и gaps.
-8. Покажи `PAF status`: applied/not applied, evidence level, blocked unsupported
-   claims и next evidence needed.
+8. Покажи `Проверка доказательности (PAF)`: уровень доказательств, что
+   подтверждено, что является допущением, какие claims заблокированы и что
+   проверить следующим.
 9. Отметь unsupported PMF/PCF/business-impact claims как forbidden.
 10. Закрой trace с artifact refs.
 

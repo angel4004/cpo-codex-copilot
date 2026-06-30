@@ -14,6 +14,28 @@ function Add-Error {
   $script:Errors += $Message
 }
 
+function Test-AnyRegex {
+  param(
+    [Parameter(Mandatory=$true)][string]$Text,
+    [Parameter(Mandatory=$true)][string[]]$Patterns
+  )
+  foreach ($pattern in $Patterns) {
+    if ($Text -match $pattern) { return $true }
+  }
+  return $false
+}
+
+function Assert-AnyRegex {
+  param(
+    [Parameter(Mandatory=$true)][string]$Text,
+    [Parameter(Mandatory=$true)][string[]]$Patterns,
+    [Parameter(Mandatory=$true)][string]$ErrorMessage
+  )
+  if (-not (Test-AnyRegex -Text $Text -Patterns $Patterns)) {
+    Add-Error $ErrorMessage
+  }
+}
+
 function Get-InlineList {
   param(
     [Parameter(Mandatory=$true)][string]$Body,
@@ -80,10 +102,50 @@ if ($script:Errors.Count -eq 0) {
     Add-Error "paf_enforcement_evidence_practice_missing: $evidencePracticePath"
   } else {
     $evidencePractice = Get-Content -Raw -LiteralPath $evidencePracticePath -Encoding UTF8
-    foreach ($pattern in @('Refusal terminal rule', 'no optional polished-status follow-up', 'next evidence step', 'PMF/PCF/business impact: evidence pending')) {
-      if ($evidencePractice -notmatch [regex]::Escape($pattern)) {
-        Add-Error "paf_enforcement_forbidden_claim_refusal_guard_missing: $pattern"
+    $practiceGuards = @(
+      @{
+        name = 'terminal_refusal'
+        patterns = @(
+          'Refusal terminal rule',
+          '\u041f\u043e\u0441\u043b\u0435[\s\S]{0,120}\u043e\u0441\u0442\u0430\u043d\u043e\u0432\u0438\u0441\u044c',
+          '\u043d\u0435\s+\u0437\u0430\u0432\u0435\u0440\u0448\u0430\u0439\s+\u043e\u0442\u043a\u0430\u0437'
+        )
+      },
+      @{
+        name = 'no_optional_follow_up'
+        patterns = @(
+          'no optional polished-status follow-up',
+          '\u043d\u0435\s+\u0434\u043e\u0431\u0430\u0432\u043b\u044f\u0439\s+optional follow-up',
+          '\u043d\u0435\s+\u0437\u0430\u0432\u0435\u0440\u0448\u0430\u0439[\s\S]{0,80}optional follow-up'
+        )
+      },
+      @{
+        name = 'next_evidence_step'
+        patterns = @(
+          'next evidence step',
+          '\u0421\u043b\u0435\u0434\u0443\u044e\u0449\u0438\u0439\s+\u0448\u0430\u0433'
+        )
+      },
+      @{
+        name = 'safe_pending_wording'
+        patterns = @(
+          'PMF/PCF/business impact: evidence pending',
+          '\u0411\u0435\u0437\u043e\u043f\u0430\u0441\u043d\u0430\u044f\s+\u0444\u043e\u0440\u043c\u0443\u043b\u0438\u0440\u043e\u0432\u043a\u0430[\s\S]{0,120}evidence pending'
+        )
+      },
+      @{
+        name = 'cannot_claim_anchor'
+        patterns = @(
+          '\u041d\u0435\u043b\u044c\u0437\u044f\s+\u0443\u0442\u0432\u0435\u0440\u0436\u0434\u0430\u0442\u044c',
+          'forbidden claim'
+        )
       }
+    )
+    foreach ($guard in $practiceGuards) {
+      Assert-AnyRegex `
+        -Text $evidencePractice `
+        -Patterns ([string[]]$guard.patterns) `
+        -ErrorMessage "paf_enforcement_forbidden_claim_refusal_guard_missing: $($guard.name)"
     }
   }
 
@@ -172,13 +234,18 @@ if ($script:Errors.Count -eq 0) {
         $docPath = Join-Path $RepoRoot $_
         if (Test-Path -LiteralPath $docPath) { Get-Content -Raw -LiteralPath $docPath -Encoding UTF8 } else { "" }
       }) -join "`n")
-      if ($workflowText -notmatch 'evidence') {
+      if (-not (Test-AnyRegex -Text $workflowText -Patterns @('evidence', '\u0434\u043e\u043a\u0430\u0437'))) {
         Add-Error "paf_enforcement_workflow_evidence_missing: $ruleId"
       }
-      if ($workflowText -notmatch 'assumptions|допущ') {
+      if (-not (Test-AnyRegex -Text $workflowText -Patterns @('assumptions', '\u0434\u043e\u043f\u0443\u0449'))) {
         Add-Error "paf_enforcement_workflow_assumptions_missing: $ruleId"
       }
-      if ($workflowText -notmatch 'forbidden claims|unsupported') {
+      if (-not (Test-AnyRegex -Text $workflowText -Patterns @(
+        'forbidden claims',
+        'unsupported',
+        '\u041d\u0435\u043b\u044c\u0437\u044f\s+\u0443\u0442\u0432\u0435\u0440\u0436\u0434\u0430\u0442\u044c',
+        '\u0437\u0430\u043f\u0440\u0435\u0449'
+      ))) {
         Add-Error "paf_enforcement_workflow_forbidden_claims_missing: $ruleId"
       }
     }

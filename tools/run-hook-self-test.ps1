@@ -22,7 +22,7 @@ foreach ($event in $expected) {
   if (-not ($events -match $event)) { $missing += $event }
 }
 
-$status = if ($missing.Count -eq 0) { 'trace_enforcement_disabled' } else { 'trace_hook_sequence_incomplete' }
+$status = if ($missing.Count -eq 0) { 'runner_only' } else { 'trace_hook_sequence_incomplete' }
 $report = [ordered]@{
   status = $status
   trace_enforcement_level = 'runner_only'

@@ -1,0 +1,9 @@
+case_id: client-feedback-intake-case
+description_ru: Клиентский фидбек должен запускать короткий discovery-turn, а не длинный шаблон.
+user_task_type: goal_validation
+required_workflow: evidence_gap_review
+prompt_ru: "Развивать текущий продукт: клиент на тестовом периоде написал, что продукт полезный, но без отчетов и выгрузки ему неудобно работать; он хочет видеть упущенную выручку за вчера, неделю и месяц. Что с этим делать?"
+expected_behavior_ru: "Copilot коротко называет adoption blocker, отделяет подтвержденный сигнал от недоказанных claims, предлагает 2-3 варианта использования фидбека и задает не больше трех вопросов о том, что сделать с этим фидбеком. Он пишет по-русски и не выдает длинный PAF/Goal Card шаблон."
+forbidden_claims: [pmf_proven, pcf_proven, business_impact_proven]
+expected_artifacts: [client_feedback_intake]
+rubric: evals/rubrics/product-ux-rubric.md

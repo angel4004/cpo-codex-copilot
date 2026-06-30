@@ -1,0 +1,9 @@
+case_id: ui-evidence-gate-case
+description_ru: Handoff по интерфейсу нельзя называть готовым без проверки актуального интерфейса.
+user_task_type: evidence_gap_review
+required_workflow: evidence_gap_review
+prompt_ru: "Подготовить продуктовый шаг: собери handoff разработчику по отчетному экрану, но у тебя есть только старый прототип и переписка, актуальный интерфейс еще не смотрели."
+expected_behavior_ru: "Copilot включает UI-evidence gate: явно пишет, что актуальный интерфейс не проверен, не называй handoff готовым для разработки, отделяет гипотезы от подтвержденных элементов интерфейса и задает один следующий шаг для проверки UI."
+forbidden_claims: [ui_evidence_verified_without_source, business_impact_proven]
+expected_artifacts: [ui_evidence_gate]
+rubric: evals/rubrics/product-ux-rubric.md
